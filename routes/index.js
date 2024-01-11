@@ -7,6 +7,8 @@ const Trip =require('../models/trip')
 const Setup =require('../models/setup')
 const Report =require('../models/reports')
 const Class1 =require('../models/class');
+const ExpV =require('../models/expV');
+const ExpSub =require('../models/expSub');
 let pdf = require('html-pdf');
 const Report2 = require('../models/reportsT');
 const Enroll = require('../models/enroll');
@@ -2199,7 +2201,7 @@ User.find({role:'student',state:'new', stdYearCount:currCount},function(err,docs
   })
 
  }
- res.redirect('/dash')
+ res.redirect('/dashInc')
   
     })
 
@@ -2282,13 +2284,358 @@ Student.findByIdAndUpdate(id,{$set:{year1:total,count:currCount,startYear:startY
    console.log('docs')
   }
   })
-  res.redirect('/dash')
+  res.redirect('/dashInc')
   })
   }
 })
 
 
 })
+
+
+
+
+
+
+
+
+
+router.get('/dashInc',isLoggedIn,function(req,res){
+  var term = req.user.term
+  var m = moment()
+  var year = m.format('YYYY')
+  var fees
+  var arr1=[]
+  var number1
+  var totalStudents, students, passRate
+ 
+
+
+  Income.find({year:year},function(err,docs){
+
+    Fees.find({term:term,year:year},function(err,hods){
+
+
+    
+
+    if(docs.length == 0 ){
+
+      
+
+      var inc = Income();
+            inc.firstTermIncome = 0;
+            inc.firstTermExpense = 0;
+            inc.secondTermIncome = 0;
+            inc.secondTermExpense = 0
+            inc.thirdTermIncome = 0
+            inc.thirdTermExpense = 0
+            inc.year = year
+        
+
+            inc.save()
+    .then(incX =>{
+
+      res.redirect('/dashExp')
+
+    })
+
+    }
+    else
+    Income.find({year:year},function(err,docs){
+
+      var id3 = docs[0]._id
+    Fees.find({term:term,year:year},function(err,hods){
+
+      for(var q = 0;q<hods.length; q++){
+          
+        arr1.push(hods[q].amount)
+          }
+          //adding all incomes from all lots of the same batch number & growerNumber & storing them in variable called total
+           number1=0;
+          for(var z in arr1) { number1 += arr1[z]; }
+
+
+          
+      if(term == 1){
+
+  
+        Income.findByIdAndUpdate(id3,{$set:{firstTermIncome:number1}},function(err,kocs){
+     
+        
+        })
+      }else if(term == 2){
+      
+        Income.findByIdAndUpdate(id3,{$set:{secondTermIncome:number1}},function(err,kocs){
+      
+            
+            })
+          }else{
+            Income.findByIdAndUpdate(id3,{$set:{thirdTermIncome:number1}},function(err,kocs){
+            
+                
+                })
+          }
+
+
+
+          res.redirect('/dashExp')
+
+
+    })
+  })
+
+
+
+
+
+  })
+
+
+})
+
+
+
+})
+
+
+
+
+router.get('/dashExp',isLoggedIn,function(req,res){
+
+  let arrX = []
+  let totalX
+  var term = req.user.term
+  var m = moment()
+  var year = m.format('YYYY')
+  var fees
+  var arr1=[]
+  var number1
+
+
+  Expenses.find({term:term,year:year},function(err,hods){
+
+    if(hods.length == 0){
+
+    }
+else
+Income.find({year:year},function(err,docs){
+  var incX = docs[0]._id
+  Expenses.find({term:term,year:year},function(err,pods){
+  
+  
+for(var q = 0;q<pods.length; q++){
+          
+  arrX.push(pods[q].amount)
+  }
+  //adding all incomes from all lots of the same batch number & growerNumber & storing them in variable called total
+   totalX=0;
+  for(var z in arrX) { totalX += arrX[z]; }
+  
+  
+  if(term == 1){
+  
+  
+  Income.findByIdAndUpdate(incX,{$set:{firstTermExpense:totalX}},function(err,kocs){
+
+  
+  })
+  }else if(term == 2){
+  
+  Income.findByIdAndUpdate(incX,{$set:{secondTermExpense:totalX}},function(err,kocs){
+
+    
+    })
+  }else{
+    Income.findByIdAndUpdate(incX,{$set:{thirdTermExpense:totalX}},function(err,kocs){
+      
+        
+        })
+      
+  }
+
+})
+})
+res.redirect('/adminMonthInc')
+  })
+
+
+})
+
+
+
+
+
+
+
+//Monthly Income Stats
+
+router.get('/adminMonthInc', isLoggedIn,  function(req,res){
+var term = req.user.term
+var m = moment()
+var year = m.format('YYYY')
+var month = m.format('MMMM')
+var fees
+var arr1=[]
+var number1
+var totalStudents, students, passRate
+
+
+
+MonthIncome.find({year:year,month:month},function(err,docs){
+
+  Fees.find({year:year,month:month},function(err,hods){
+
+
+  
+
+  if(docs.length == 0  && hods.length == 0){
+
+    
+
+    var inc = MonthIncome();
+          inc.amount = 0;
+          inc.month = month;
+          inc.year = year
+      
+
+          inc.save()
+  .then(incX =>{
+
+    res.redirect('/adminMonthExp')
+
+  })
+
+  }
+  else
+  MonthIncome.find({year:year,month:month},function(err,docs){
+
+    var id3 = docs[0]._id
+  Fees.find({year:year,month:month},function(err,hods){
+
+    for(var q = 0;q<hods.length; q++){
+        
+      arr1.push(hods[q].amount)
+        }
+        //adding all incomes from all lots of the same batch number & growerNumber & storing them in variable called total
+         number1=0;
+        for(var z in arr1) { number1 += arr1[z]; }
+
+
+
+        MonthIncome.findByIdAndUpdate(id3,{$set:{amount:number1}},function(err,kocs){
+
+        })
+        
+    
+
+
+
+        res.redirect('/adminMonthExp')
+
+
+  })
+})
+
+
+
+
+
+})
+
+
+})
+
+
+
+})
+
+
+
+
+
+router.get('/adminMonthExp', isLoggedIn,  function(req,res){
+var term = req.user.term
+var m = moment()
+var year = m.format('YYYY')
+var month = m.format('MMMM')
+var fees
+var arr1=[]
+var number1
+var totalStudents, students, passRate
+
+
+
+MonthExpense.find({year:year,month:month},function(err,docs){
+
+  Expenses.find({year:year,month:month},function(err,hods){
+
+
+  
+
+  if(docs.length == 0  && hods.length == 0){
+
+    
+
+    var exp = MonthExpense();
+          exp.amount = 0;
+          exp.month = month;
+          exp.year = year
+  
+
+          exp.save()
+  .then(incX =>{
+
+    res.redirect('/dash')
+
+  })
+
+  }
+  else
+  MonthExpense.find({year:year,month:month},function(err,docs){
+
+    var id3 = docs[0]._id
+  Expenses.find({year:year,month:month},function(err,hods){
+
+    for(var q = 0;q<hods.length; q++){
+        
+      arr1.push(hods[q].amount)
+        }
+        //adding all incomes from all lots of the same batch number & growerNumber & storing them in variable called total
+         number1=0;
+        for(var z in arr1) { number1 += arr1[z]; }
+
+
+
+        MonthExpense.findByIdAndUpdate(id3,{$set:{amount:number1}},function(err,kocs){
+
+        })
+        
+    
+
+
+
+        res.redirect('/dash')
+
+
+  })
+})
+
+
+
+
+
+})
+
+
+})
+
+
+
+})
+
+
+
+
 
 
 
@@ -7994,8 +8341,8 @@ router.get('/financeReports',isLoggedIn, function(req,res){
   var id = req.user.paymentId
   var uid = req.user.studentId
  
-  var companyId = req.user.companyId
-  Fees.find({companyId:companyId,uid:uid},function(err,docs){
+  
+  Fees.find(function(err,docs){
    
     res.render('hurlings/admin/filesFinance',{listX:docs,pro:pro})
 
@@ -8219,12 +8566,13 @@ const content = await compile('receipt',docs)
 await page.setContent(content)
 //create a pdf document
 
-await page.pdf({
-path:(`./finance/${year}/${month}/${uid}`+'.pdf'),
+await  page.pdf({
+path: (`./finance/${year}/${month}/${uid}`+'.pdf'),
 format:"A4",
 printBackground:true
 })
 
+//await upload.single(page.pdf)
 console.log("Done creating pdf",uid)
 res.redirect('/print')
 /*await browser.close()
@@ -8260,6 +8608,438 @@ router.get('/print',isLoggedIn,function(req,res){
    
   })
 })
+
+////fees list
+
+
+router.get('/feesList',isLoggedIn, (req, res) => {
+  var pro = req.user
+
+  Fees.find({},(err, docs) => {
+      if (!err) {
+          res.render("hurlings/admin/list2", {
+             listX:docs, pro:pro
+            
+          });
+      }
+  });
+});
+
+
+router.get('/downloadFeesReceipt/:id',isLoggedIn,function(req,res){
+  var m = moment()
+//var month = m.format('MMMM')
+//var year = m.format('YYYY')
+  Fees.findById(req.params.id,function(err,doc){
+    var name = doc.uid;
+    var month = doc.month
+    var year = doc.year
+    res.download( './finance/'+year+'/'+month+'/'+name+'.pdf', name+'.pdf')
+  })  
+
+})
+
+  
+
+//////expenses
+
+router.get('/expBatch',isLoggedIn,  function(req,res){
+  var pro = req.user
+  var errorMsg = req.flash('danger')[0];
+  var successMsg = req.flash('success')[0];
+  res.render('hurlings/admin/expBatch',{pro:pro,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
+  })
+
+
+
+
+  router.post('/expBatch',isLoggedIn,  function(req,res){
+  var id =req.user._id
+    var code = req.body.code
+    var date = req.body.date
+    var time  = req.body.time
+    var m2 = moment()
+    var mformat = m2.format('L')
+    var pro = req.user
+
+    
+    
+
+    req.check('code','Enter  Code').notEmpty();
+    req.check('date','Enter Date').notEmpty();
+    req.check('time','Enter Time').notEmpty();
+  
+    
+    var errors = req.validationErrors();
+     
+    if (errors) {
+      req.session.errors = errors;
+      req.session.success = false;
+     
+
+      
+  
+
+
+  req.flash('danger', req.session.errors[0].msg);
+       
+        
+  res.redirect('/expBatch');
+    
+    }
+    
+    else 
+    
+    ExpSub.findOne({'code':code})
+    .then(grower =>{
+    if(grower){
+
+      req.flash('danger', 'Code already in use');
+ 
+      res.redirect('/expBatch');
+    }else{
+
+      var truck = new ExpSub()
+      truck.code = code
+      truck.time = time
+      truck.mformat = mformat
+
+      truck.save()
+          .then(pro =>{
+
+      User.findByIdAndUpdate(id,{$set:{paymentId:code,pollUrl:pro._id}}, function(err,coc){
+          
+        
+      })
+res.redirect('/expenses')
+
+    })
+
+    }
+    
+    })
+    
+    
+    })
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //add subjects
+ router.get('/expenses',isLoggedIn, function(req,res){
+  var pro = req.user
+  var code = req.user.paymentId
+if(req.user.paymentId == "null"){
+  res.redirect('/expBatch')
+}else{
+
+
+    var errorMsg = req.flash('danger')[0];
+  var successMsg = req.flash('success')[0];
+  res.render('hurlings/admin/add',{code:code,pro:pro,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
+}
+  
+
+})
+
+router.post('/expenses',isLoggedIn,records,  function(req,res){
+     var pro = req.user
+     var m = moment()
+     var n = moment().toString()
+     var description = req.body.description;
+     var type = req.body.type;
+     var code = req.body.code
+     var amount = req.body.amount;
+     var voucherNumber = req.body.voucherNumber;
+     var status = req.body.status;
+     var term = req.user.term;
+     var payment = req.body.payment;
+     var date = req.body.date
+     var year = m.format('YYYY')
+     var month = m.format('MMMM')
+     var days = moment().toString()
+     var voucherNumber = req.body.voucherNumber
+ 
+     req.check('description','Enter Description').notEmpty();
+     req.check('type','Enter Expense Type').notEmpty();
+     req.check('amount','Enter Amount').notEmpty();
+     req.check('voucherNumber','Enter Voucher #').notEmpty();
+     req.check('status','Enter Status').notEmpty();
+     req.check('payment','Enter payment method').notEmpty();
+   
+    
+      
+      var errors = req.validationErrors();
+           
+      if (errors) {
+      
+        req.session.errors = errors;
+        req.session.success = false;
+        req.flash('danger', req.session.errors[0].msg);
+       
+        
+        res.redirect('/expenses');
+      
+    }
+    else{
+      
+        ExpV.findOne({'voucherNumber':voucherNumber})
+        .then(subject =>{
+            if(subject){ 
+              req.flash('danger', 'Expense already exists');
+       
+        
+              res.redirect('/expenses');
+            }else
+    
+      var sub = new ExpV();
+    
+      sub.date = date;
+       sub.description = description;
+       sub.type = type
+      sub.amount = amount;
+      sub.term = term
+      sub.year = year
+      sub.voucherNumber = voucherNumber
+      sub.status = status
+      sub.payment = payment
+      sub.month = month
+      sub.code = code
+      sub.status2 = "null"
+   
+    
+    
+      sub.save()
+        .then(sub =>{
+          ExpV.find({code:code,status2:'null'},(err, docs) => {
+            let size = docs.length - 1
+            console.log(docs[size],'fff')
+            res.send(docs[size])
+                    })
+    
+      })
+    
+        .catch(err => console.log(err))
+      
+      
+      })
+    }
+    
+    
+})
+
+
+
+router.post('/loadExp',isLoggedIn, (req, res) => {
+  var pro = req.user
+  var m2 = moment()
+var wformat = m2.format('L')
+var year = m2.format('YYYY')
+  var code = req.user.paymentId
+
+
+ ExpV.find({code:code,status2:'null'},(err, docs) => {
+ 
+    res.send(docs)
+            })
+
+  }); 
+
+  router.post('/expV/update/:id',isLoggedIn,function(req,res){
+    var id = req.params.id
+    console.log(id,'emblem')
+    var pro = req.user
+  
+    var m = moment()
+    var year = m.format('YYYY')
+    var month = m.format('MMMM')
+    var dateValue = m.valueOf()
+    var mformat = m.format("L")
+    var date = m.toString()
+    var code = req.body.code
+    ExpV.findById(id,function(err,doc){
+    
+    
+    
+     
+ ExpV.findByIdAndUpdate(id,{$set:{amount:code}},function(err,doc){
+  
+   })     
+        
+    
+    
+    
+    
+    
+   /* }else{
+      console.log('null')
+    
+      ShopStock.findByIdAndUpdate(id,{$set:{stockUpdate:'yes'}},function(err,loc){
+    
+      })
+    }*/
+    res.send(doc)
+  })
+    })
+
+
+
+
+
+
+router.get('/saveExp/:id',isLoggedIn, function(req,res){
+  var pro = req.user
+
+ var code2 = req.params.id
+ var uid = req.user._id
+
+var m2 = moment()
+var wformat = m2.format('L')
+var year = m2.format('YYYY')
+var dateValue = m2.valueOf()
+var date = m2.toString()
+var numDate = m2.valueOf()
+var month = m2.format('MMMM')
+
+
+//var mformat = m.format("L")
+
+
+
+ExpV.find({code:code2},function(err,locs){
+
+for(var i=0;i<locs.length;i++){
+
+let code = locs[i].code
+let description = locs[i].description
+let type = locs[i].type
+let amount = locs[i].amount
+let term = locs[i].term
+let year = locs[i].year
+let voucherNumber = locs[i].voucherNumber
+let status = locs[i].status
+let payment = locs[i].payment
+let month = locs[i].month
+let date = locs[i].date
+
+
+
+let idN = locs[i]._id
+
+
+  ExpV.findByIdAndUpdate(idN,{$set:{status:'saved'}},function(err,pocs){
+
+  })
+  
+
+  
+
+  Expenses.findOne({'code':code})
+  .then(hoc=>{
+
+    if(!hoc){
+      var sub = new Expenses();
+    
+      sub.date = date;
+      sub.description = description;
+      sub.type = type
+     sub.amount = amount;
+     sub.term = term
+     sub.year = year
+     sub.voucherNumber = voucherNumber
+     sub.status = status
+     sub.payment = payment
+     sub.month = month
+    
+    
+
+      
+       
+      sub.save()
+          .then(pro =>{
+
+            User.findByIdAndUpdate(uid,{$set:{paymentId:'null'}},function(err,doc){
+
+    
+           
+
+
+
+
+            })
+
+
+               /*  req.session.message = {
+              type:'success',
+              message:'Product added'
+            }  
+            res.render('product/stock',{message:req.session.message,pro:pro});*/
+          
+        
+        })
+
+       /* req.flash('success', 'Stock Received Successfully');
+        res.redirect('/rec/addStock')*/
+      }  /* else{
+        req.flash('danger', 'Product Does Not Exist');
+      
+        res.redirect('/rec/addStock');
+      }*/
+    }) 
+
+     
+}
+
+
+
+req.flash('success', 'Classes Successfully Added');
+res.redirect('/expenses')
+}) 
+})
+
+
+router.get('/expBatchDelete/:id',isLoggedIn, (req, res) => {
+  expVV.findByIdAndRemove(req.params.id, (err, doc) => {
+    if (!err) {
+        res.redirect('/expenses');
+    }
+    else { console.log('Error in deleting stock :' + err); }
+  });
+  });
+
+
+
+
+
+
+
+  router.get('/expensesList',isLoggedIn, (req, res) => {
+    var pro = req.user
+
+    Expenses.find({},(err, docs) => {
+        if (!err) {
+            res.render("hurlings/admin/list", {
+               listX:docs, pro:pro
+              
+            });
+        }
+    });
+  });
+  
+    
+  
 
 
 

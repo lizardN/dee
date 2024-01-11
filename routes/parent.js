@@ -3358,8 +3358,8 @@ Message.findByIdAndUpdate(Vid,{$set:{status4:timeX2,status5:timeX3}},function(er
                   var id = req.user.paymentId
                   var uid = req.user.studentId
                  
-                  var companyId = req.user.companyId
-                  Fees.find({companyId:companyId,uid:uid},function(err,docs){
+            
+                  Fees.find({uid:uid},function(err,docs){
                    
                     res.render('hurlings/parents/filesFinance',{listX:docs,pro:pro})
                 
