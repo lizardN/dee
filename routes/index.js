@@ -7472,7 +7472,7 @@ router.get('/parentsList',isLoggedIn,records,(req, res) => {
   
   User.find({role:"parent"},(err, docs) => {
       if (!err) {
-          res.render("hurlings/parents/parentsList", {
+          res.render("hurlings/admin/parentsList", {
               listX: docs, pro:pro
               
           });
