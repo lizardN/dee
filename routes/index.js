@@ -7147,7 +7147,7 @@ for(var n = 0 ; n<locs.length;n++){
  
 
     
-  router.post('/importParents',isLoggedIn,records, upload.single('file'),function(req,res){
+  router.post('/importParents',isLoggedIn, upload.single('file'),function(req,res){
     var term = req.user.term;
     var m = moment()
     var year = m.format('YYYY')
@@ -7307,9 +7307,7 @@ const mailOptions = {
 await   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error)
-      req.flash('danger', 'Email not sent');
-
-      res.redirect('/importParents')
+      
 
 
     }
@@ -7321,9 +7319,7 @@ await   transporter.sendMail(mailOptions, (error, info) => {
 
        
         
-        req.flash('success', 'Email  sent');
-
-        res.redirect('/importParents')
+       
 
       })
     }
@@ -7456,7 +7452,9 @@ await   transporter.sendMail(mailOptions, (error, info) => {
         
                    
         
-        
+          req.flash('success', 'Email  sent');
+
+          res.redirect('/importParents')
              
                 })
                 
@@ -7474,7 +7472,7 @@ router.get('/parentsList',isLoggedIn,records,(req, res) => {
   
   User.find({role:"parent"},(err, docs) => {
       if (!err) {
-          res.render("hurlings/parents//parentsList", {
+          res.render("hurlings/parents/parentsList", {
               listX: docs, pro:pro
               
           });

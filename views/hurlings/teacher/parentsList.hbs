@@ -1431,7 +1431,7 @@
 								<!--begin::Page title-->
 								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 									<!--begin::Title-->
-									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Students List</h1>
+									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Parents List</h1>
 									<!--end::Title-->
 									<!--begin::Separator-->
 									<span class="h-20px border-gray-300 border-start mx-4"></span>
@@ -1501,7 +1501,7 @@
 												<!--end::Svg Icon-->Export</button>
 												<!--end::Export-->
 												<!--begin::Add user-->
-												<a type="button" class="btn btn-primary" href="/records/addStudent">
+												<a type="button" class="btn btn-primary" href="/importParents">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
 												<span class="svg-icon svg-icon-2">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -1627,7 +1627,7 @@
 													<th class="min-w-125px">Children</th>
                                                     <th class="min-w-125px"> Mobile</th>
 													<th class="min-w-125px">Email</th>
-													<th class="min-w-125px">Industry</th>
+													<th class="min-w-125px">Industry/Occupation</th>
 												
 													<th class="text-end min-w-100px">Actions</th>
 												</tr>
@@ -1668,7 +1668,7 @@
 													<!--end::Role=-->
 															<td><div class="badge badge-light-success fw-bolder">{{this.children}}</div></td>
 
-															<td><div class="badge badge-light-success fw-bolder">{{this.mobile}}</div></td>
+															<td><div class="badge badge-light-success fw-bolder">{{this.email}}</div></td>
 													<!--begin::Last login=-->
 													<td>
 														<div class="badge badge-light fw-bolder">{{this.industry}}</div>
