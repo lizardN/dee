@@ -4671,7 +4671,7 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
   
 
   
-  router.post('/import',isLoggedIn,records, upload.single('file'),  (req,res)=>{
+  router.post('/import',isLoggedIn, upload.single('file'),  (req,res)=>{
     var count = req.user.actualCount
     var m = moment()
  
@@ -4785,7 +4785,7 @@ req.body.photo = record.photo
               req.check('address','Enter Address').notEmpty();
               req.check('grade','Enter Grade/Form').notEmpty();
               req.check('grade','Grade must be numeric').notEmpty().isNumeric();
-              req.check('uid','Enter Student ID').notEmpty();
+            
               req.check('class1','Enter Student Class').notEmpty();
               req.check('gender','Enter Gender').notEmpty();
               req.check('mobile', 'Enter Phone Number').notEmpty()
