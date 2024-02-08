@@ -8576,7 +8576,7 @@ await page.setContent(content, { waitUntil: "domcontentloaded"});
 //await page.addStyleTag({ path: `./public/hurlings/feesReceipt.css`});
 //create a pdf document
 //await page.setContent(html, { waitUntil: "domcontentloaded"});
-await page.setContent(html, { waitUntil: 'networkidle2'});
+await page.setContent(content, { waitUntil: 'networkidle2'});
 await  page.pdf({
 path: (`./finance/${year}/${month}/${uid}`+'.pdf'),
 format:"A4",
