@@ -2,7 +2,7 @@ var labels1= []
 var labels3= []
 var labels4= []
 let labels99 = []
-var colorPalette = ['#00D8B6','#008FFB',  '#FEB019', '#FF4560', '#775DD0']
+var colorPalette = ['#e81e1e','#7de81e',  '#FEB019']
 $.ajax({
    
     dataType: 'json',
@@ -82,18 +82,23 @@ for (var i = 0;i<data.length;i++){
 
    
      var options = {
+        colors: colorPalette,
         series: labels1,
+        
         chart: {
         width: 380,
-        type: 'polarArea'
+        type: 'polarArea',
+        colors: colorPalette,
       },
       labels: labels2,
+      colors: colorPalette,
       fill: {
-        opacity: 1
+        opacity: 1,
+        colors: colorPalette,
       },
       stroke: {
         width: 1,
-        colors: undefined
+        colors: colorPalette,
       },
       yaxis: {
         show: false
@@ -104,10 +109,12 @@ for (var i = 0;i<data.length;i++){
       plotOptions: {
         polarArea: {
           rings: {
-            strokeWidth: 0
+            strokeWidth: 0,
+            colors: colorPalette,
           },
           spokes: {
-            strokeWidth: 0
+            strokeWidth: 0,
+            colors: colorPalette,
           },
         }
       },

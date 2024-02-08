@@ -2012,7 +2012,7 @@ router.post('/profile',isLoggedIn,upload.single('file'),function(req,res){
           .then(fee =>{
             User.find({uid:uid},function(err,docs){
   
-             User.findByIdAndUpdate(xId,{$set:{studentId:studentId,amount:amount,receiptNumber:receiptNumber}},function(err,gocs){
+             User.findByIdAndUpdate(xId,{$set:{studentId:uid,amount:amount,receiptNumber:receiptNumber,paymentCode:fees._id}},function(err,gocs){
             
   
   console.log('xId',xId)

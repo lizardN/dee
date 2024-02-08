@@ -8461,8 +8461,8 @@ else
       fees.save()
         .then(fee =>{
           User.find({uid:uid},function(err,docs){
-
-           User.findByIdAndUpdate(xId,{$set:{studentId:studentId,amount:amount,receiptNumber:receiptNumber}},function(err,gocs){
+let parentEmail =docs[0].parentEmail
+           User.findByIdAndUpdate(xId,{$set:{studentId:studentId,studentUid:uid,amount:amount,paymentCode:fee._id,parentEmail:parentEmail}},function(err,gocs){
           
 
 console.log('xId',xId)
@@ -8498,15 +8498,22 @@ console.log('xId',xId)
 
         })
 
-
+  
 
     }
-    
-  res.redirect('/printX')
+    res.redirect('/printX2')
+ 
 })
 }
  
 })
+
+router.get('/printX2',function(req,res){
+  res.redirect('/printX')
+})
+
+
+
 
 
 router.get('/printX',isLoggedIn,function(req,res){
@@ -8527,8 +8534,11 @@ console.log(uid,'uid')
 const compile = async function (templateName, docs){
 const filePath = path.join(process.cwd(),'templates',`${templateName}.hbs`)
 
-const html = await fs.readFile(filePath, 'utf8')
+//const html = await fs.readFile(filePath, 'utf8')
+//const html = await `<style> ${fs.readFileSync( `./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
 
+const html = await `<style> ${fs.readFileSync( `./public/hurlings/feesReceipt.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
+//await page.setContent(html, { waitUntil: "domcontentloaded"});
 return hbs.compile(html)(docs)
 
 };
@@ -8557,17 +8567,22 @@ const page = await browser.newPage()
 
 
 
-const content = await compile('receipt',docs)
+const content = await compile('receipt3',docs)
 
+await page.setContent(content, { waitUntil: "domcontentloaded"});
 
-
-await page.setContent(content)
+ await page.setContent(content)
+  //await page.setContent(content, { waitUntil: "domcontentloaded"});
+//await page.addStyleTag({ path: `./public/hurlings/feesReceipt.css`});
 //create a pdf document
-
+//await page.setContent(html, { waitUntil: "domcontentloaded"});
+await page.setContent(html, { waitUntil: 'networkidle2'});
 await  page.pdf({
 path: (`./finance/${year}/${month}/${uid}`+'.pdf'),
 format:"A4",
-printBackground:true
+preferCSSPageSize: true,
+
+
 })
 
 //await upload.single(page.pdf)
@@ -8591,18 +8606,108 @@ console.log(e)
 
 
 })
+router.get('/printAlt',async function(req,res){
+  const browser = await puppeteer.launch({ headless: true, slowMo: 150 });
+  const page = await browser.newPage();
+ 
+  // FETCHING LOGO FROM URL AND CONVERTING INTO BASE64
+  
+
+  //  ADDING CSS TO HTML BODY CONTENT
+  const html = await `<style> ${fs.readFileSync(`./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(`./templates/receipt3.hbs`, "utf8")}`;
+ // await page.setContent(html, { waitUntil: 'load'});
+  //await page.setContent(html, { waitUntil: 'networkidle0'});
+  await page.setContent(html, { waitUntil: 'networkidle2'});
+
+
+
+  const pdf = await page.pdf({
+    path: (`./finance/2024/February/SZ130`+'.pdf'),
+    format: "A4",
+    printBackground: false,
+    preferCSSPageSize: true,
+    displayHeaderFooter: true,
+  
+  });
+
+})
+
+router.get('/genEmail2',isLoggedIn,function(req,res){
+  //User.find({role:"parent"},function(err,docs){
+ let email= req.user.parentEmail
+ let uid = req.user.studentUid
+  /* for(var i = 0;i<docs.length;i++){
+     let email = docs[i].email
+     let studentId = docs[i].studentId*/
+ 
+ 
+ 
+ 
+ 
+             
+   const transporter = nodemailer.createTransport({
+     service: 'gmail',
+     port:465,
+     secure:true,
+     logger:true,
+     debug:true,
+     secureConnection:false,
+     auth: {
+         user: "kratosmusasa@gmail.com",
+         pass: "znbmadplpvsxshkg",
+     },
+     tls:{
+       rejectUnAuthorized:true
+     }
+     //host:'smtp.gmail.com'
+   });
+   let mailOptions ={
+     from: '"Admin" <kratosmusasa@gmail.com>', // sender address
+                 to: email, // list of receivers
+                 subject: "Fees Receipt",
+     //text:"Node js testing",
+     attachments: [
+       {
+         filename:'document.pdf',
+         path:(`./finance/${year}/${month}/${uid}`+'.pdf')
+       }
+     ]
+   };
+   transporter.sendMail(mailOptions, function (error,info){
+     if(error){
+       console.log(error)
+       req.flash('danger', 'Receipt Not Emailed!');
+  
+       res.redirect('/print')
+     }else{
+       console.log('Email sent successfully')
+       req.flash('success', 'Receipt Emailed Successfully!');
+  
+       res.redirect('/print')
+     }
+   })
+ 
+
+ 
+ })
+
+
+
 
 router.get('/print',isLoggedIn,function(req,res){
   var uid =req.user.studentId;
   var day = moment().toString();
   var amount = req.user.amount
+  var receiptNumber = req.user.paymentCode
+    var errorMsg = req.flash('danger')[0];
+  var successMsg = req.flash('success')[0];
   
   User.findById(uid,function(err,zocs){
 
     
        
-       res.render('accounts/receipt', {
-         date:day,uid:uid,user:zocs, clerk:req.user.fullname, amount:amount})
+       res.render('accounts/receipt3', {
+         date:day,uid:uid,user:zocs, clerk:req.user.fullname,receiptNumber:receiptNumber, amount:amount,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
    
   })
 })
