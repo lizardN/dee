@@ -8535,9 +8535,9 @@ const compile = async function (templateName, docs){
 const filePath = path.join(process.cwd(),'templates',`${templateName}.hbs`)
 
 //const html = await fs.readFile(filePath, 'utf8')
-//const html = await `<style> ${fs.readFileSync( `./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
+const html = await `<style> ${fs.readFileSync( `./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
 
-const html = await `<style> ${fs.readFileSync( `./public/hurlings/feesReceipt.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
+//const html = await `<style> ${fs.readFileSync( `./public/hurlings/feesReceipt.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
 //await page.setContent(html, { waitUntil: "domcontentloaded"});
 return hbs.compile(html)(docs)
 
