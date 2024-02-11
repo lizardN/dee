@@ -8472,7 +8472,7 @@ console.log('xId',xId)
 
             if(newBalance >= 0){
     
-              User.findByIdAndUpdate(docs[0]._id,{$set:{balance:newBalance, status:"paid", term:term,amount:amount, year:year,balanceCarriedOver:balance}},function(err,docs){
+              User.findByIdAndUpdate(docs[0]._id,{$set:{balance:newBalance, status:"paid", term:term,amount:amount, year:year,balanceCarriedOver:balance,receiptNumber:fee._id}},function(err,docs){
             
         
               
@@ -8481,7 +8481,7 @@ console.log('xId',xId)
           
             }else
             
-            User.findByIdAndUpdate(docs[0]._id,{$set:{balance:newBalance, status:"owing",amount:amount, term:term, year:year,balanceCarriedOver:balance}},function(err,docs){
+            User.findByIdAndUpdate(docs[0]._id,{$set:{balance:newBalance, status:"owing",amount:amount, term:term, year:year,balanceCarriedOver:balance,receiptNumber:fee._id}},function(err,docs){
             
             
               
@@ -8534,8 +8534,8 @@ console.log(uid,'uid')
 const compile = async function (templateName, docs){
 const filePath = path.join(process.cwd(),'templates',`${templateName}.hbs`)
 
-//const html = await fs.readFile(filePath, 'utf8')
-const html = await `<style> ${fs.readFileSync( `./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
+const html = await fs.readFile(filePath, 'utf8')
+//const html = await `<style> ${fs.readFileSync( `./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
 
 //const html = await `<style> ${fs.readFileSync( `./public/hurlings/feesReceipt.css`, "utf8")} </style> ${fs.readFileSync(filePath,"utf8")}`;
 //await page.setContent(html, { waitUntil: "domcontentloaded"});
@@ -8556,6 +8556,8 @@ const browser = await puppeteer.launch({
     "--no-sandbox",
     "--single-process",
     "--no-zygote",
+    "--disable-web-security",
+ 
   ],
   executablePath:
     process.env.NODE_ENV === "production"
@@ -8569,7 +8571,7 @@ const page = await browser.newPage()
 
 const content = await compile('receipt3',docs)
 
-await page.setContent(content, { waitUntil: "domcontentloaded"});
+await page.setContent(content, { waitUntil: 'networkidle0'});
 
  await page.setContent(content)
   //await page.setContent(content, { waitUntil: "domcontentloaded"});
@@ -8580,7 +8582,9 @@ await page.setContent(content, { waitUntil: 'networkidle2'});
 await  page.pdf({
 path: (`./finance/${year}/${month}/${uid}`+'.pdf'),
 format:"A4",
-preferCSSPageSize: true,
+printBackground: true,
+width:'20cm',
+height:'10cm'
 
 
 })
@@ -8607,27 +8611,39 @@ console.log(e)
 
 })
 router.get('/printAlt',async function(req,res){
-  const browser = await puppeteer.launch({ headless: true, slowMo: 150 });
+  const browser = await puppeteer.launch({   headless: true,slowMo: 150,
+    args: [
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--single-process",
+      "--no-zygote",
+      "--disable-web-security",
+   
+    ] });
   const page = await browser.newPage();
  
   // FETCHING LOGO FROM URL AND CONVERTING INTO BASE64
-  
-
+  //await page.addStyleTag({ path: `./public/hurlings/feesReceipt.css`},{waitUntil: 'networkidle0'});
+  const html = await fs.readFile(`./templates/receipt3.hbs`, 'utf8')
   //  ADDING CSS TO HTML BODY CONTENT
-  const html = await `<style> ${fs.readFileSync(`./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(`./templates/receipt3.hbs`, "utf8")}`;
- // await page.setContent(html, { waitUntil: 'load'});
-  //await page.setContent(html, { waitUntil: 'networkidle0'});
-  await page.setContent(html, { waitUntil: 'networkidle2'});
+  //const html = await `<style> ${fs.readFileSync(`./public/hurlings/bootstrap.min.css`, "utf8")} </style> ${fs.readFileSync(`./templates/receipt3.hbs`, "utf8",{waitUntil: 'networkidle2'})}`;
+  //console.log(html)
+  //await page.setContent(html, { waitUntil: 'load'});
+  await page.setContent(html, { waitUntil: "domcontentloaded"});
+  await page.setContent(html, { waitUntil: 'networkidle0'});
+
+  await page.waitForTimeout(15000);
+  //await page.setContent(html, { waitUntil: 'networkidle2'});
 
 
 
   const pdf = await page.pdf({
     path: (`./finance/2024/February/SZ130`+'.pdf'),
     format: "A4",
-    printBackground: false,
-    preferCSSPageSize: true,
-    displayHeaderFooter: true,
-  
+    printBackground: true
+    /*preferCSSPageSize: true,
+    displayHeaderFooter: true,*/
+   
   });
 
 })
