@@ -68,7 +68,7 @@
 					<!--begin::Brand-->
 					<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 						<!--begin::Logo-->
-						<a href="/dash">
+						<a href="/records/dash">
 							<img alt="Logo" src="assets/media/logos/logo-1-dark.png" class="h-25px logo" />
 						</a>
 						<!--end::Logo-->
@@ -94,7 +94,7 @@
 							<div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true" data-kt-menu-expand="false">
 								
 									<div class="menu-item">
-										<a class="menu-link" href="/dash">
+										<a class="menu-link" href="/records/dash">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 												<span class="svg-icon svg-icon-2">
@@ -141,16 +141,32 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/addStudent">
+											<a class="menu-link" href="/records/addStudent">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">Enroll Students</span>
+												<span class="menu-title">Register New Students</span>
 											</a>
 										</div>
-										
 										<div class="menu-item">
-											<a class="menu-link" href="/studentList">
+											<a class="menu-link" href="/records/addClass">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Add Student Classes</span>
+											</a>
+										</div>
+
+											<div class="menu-item">
+											<a class="menu-link" href="/records/classList">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">View Classes</span>
+											</a>
+										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="/records/studentList">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -158,7 +174,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/import">
+											<a class="menu-link" href="/records/import">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -168,15 +184,22 @@
 										
 
 											<div class="menu-item">
-											<a class="menu-link" href="/addLevel">
+											<a class="menu-link" href="/records/addLevel">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">Learning Levels </span>
+												<span class="menu-title">Add Level - Grades </span>
 											</a>
 										</div>
 
-											
+											<div class="menu-item">
+											<a class="menu-link" href="/records/viewLevels">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">View Level - Grades</span>
+											</a>
+										</div>
 									</div>
 								</div>
 								
@@ -202,7 +225,7 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/addTeacher">
+											<a class="menu-link" href="/records/addTeacher">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -210,7 +233,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/importTeacher">
+											<a class="menu-link" href="/records/importTeacher">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -219,7 +242,7 @@
 										</div>
 
 									<div class="menu-item">
-											<a class="menu-link" href="/teacherList">
+											<a class="menu-link" href="/records/teacherList">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -231,121 +254,75 @@
 									</div>
 								</div>
 								
-
-
-								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black"/>
-<rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black"/>
-<path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black"/>
-<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black"/>
-</svg>
-
-											</span>
-											<!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">Staff</span>
-										<span class="menu-arrow"></span>
-									</span>
-									<div class="menu-sub menu-sub-accordion menu-active-bg">
-										<div class="menu-item">
-											<a class="menu-link" href="/addStaff">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">Register Staff</span>
-											</a>
-										</div>
+								
 									
-
-									<div class="menu-item">
-											<a class="menu-link" href="/viewStaff">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">View Staff</span>
-											</a>
-										</div>	
-										
-										
-									</div>
-								</div>
 								
-								
-										
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<span class="menu-link">
-										<span class="menu-icon">
-											<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-											<span class="svg-icon svg-icon-2">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black"/>
-<rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black"/>
-<path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black"/>
-<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black"/>
-</svg>
-
-											</span>
-											<!--end::Svg Icon-->
-										</span>
-										<span class="menu-title">Parents</span>
-										<span class="menu-arrow"></span>
-									</span>
-									<div class="menu-sub menu-sub-accordion menu-active-bg">
-										<div class="menu-item">
-											<a class="menu-link" href="/importParents">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">Import Parents</span>
-											</a>
-										</div>
-										<div class="menu-item">
-											<a class="menu-link" href="/parentsList">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">View Parents</span>
-											</a>
-										</div>
-
-								
-										
-										
-									</div>
-								</div>
-								
-
-													
-					
-								
-
-
 								<div class="menu-item">
 									<div class="menu-content pt-8 pb-2">
-										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Administration</span>
+										<span class="menu-section text-muted text-uppercase fs-8 ls-1">User Management</span>
 									</div>
 								</div>
-								
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<div class="menu-item">
-										<a class="menu-link" href="/classListX">
+										<a class="menu-link" href="/addStaff">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 												<span class="svg-icon svg-icon-2">
-													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z" fill="black"/>
-<path opacity="0.3" d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z" fill="black"/>
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12ZM12 7C10.3 7 9 8.3 9 10C9 11.7 10.3 13 12 13C13.7 13 15 11.7 15 10C15 8.3 13.7 7 12 7Z" fill="black"/>
+<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="black"/>
 </svg>
 
 												</span>
 												<!--end::Svg Icon-->
 											</span>
-											<span class="menu-title">Student Classes</span>
+											<span class="menu-title">Register Staff</span>
+										</a>
+									</div>
+								
+								</div>
+								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div class="menu-item">
+										<a class="menu-link" href="/records/staffList">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-2">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="black"/>
+<rect x="7" y="17" width="6" height="2" rx="1" fill="black"/>
+<rect x="7" y="12" width="10" height="2" rx="1" fill="black"/>
+<rect x="7" y="7" width="6" height="2" rx="1" fill="black"/>
+<path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
+</svg>
+
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">View Staff</span>
+										</a>
+									</div>
+								
+								</div>
+							
+
+							<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div class="menu-item">
+										<a class="menu-link" href="/records/importParents">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-2">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="black"/>
+<rect x="7" y="17" width="6" height="2" rx="1" fill="black"/>
+<rect x="7" y="12" width="10" height="2" rx="1" fill="black"/>
+<rect x="7" y="7" width="6" height="2" rx="1" fill="black"/>
+<path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
+</svg>
+
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">Import Parents</span>
 										</a>
 									</div>
 								
@@ -353,6 +330,65 @@
 
 
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div class="menu-item">
+										<a class="menu-link" href="/records/parentsList">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-2">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="black"/>
+<rect x="7" y="17" width="6" height="2" rx="1" fill="black"/>
+<rect x="7" y="12" width="10" height="2" rx="1" fill="black"/>
+<rect x="7" y="7" width="6" height="2" rx="1" fill="black"/>
+<path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
+</svg>
+
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">View Parents</span>
+										</a>
+									</div>
+								
+								</div>
+
+
+								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div class="menu-item">
+										<a class="menu-link" href="/records/updateParents">
+										<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-2">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M11 6.5C11 9 9 11 6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C9 2 11 4 11 6.5ZM17.5 2C15 2 13 4 13 6.5C13 9 15 11 17.5 11C20 11 22 9 22 6.5C22 4 20 2 17.5 2ZM6.5 13C4 13 2 15 2 17.5C2 20 4 22 6.5 22C9 22 11 20 11 17.5C11 15 9 13 6.5 13ZM17.5 13C15 13 13 15 13 17.5C13 20 15 22 17.5 22C20 22 22 20 22 17.5C22 15 20 13 17.5 13Z" fill="black"/>
+<path d="M17.5 16C17.5 16 17.4 16 17.5 16L16.7 15.3C16.1 14.7 15.7 13.9 15.6 13.1C15.5 12.4 15.5 11.6 15.6 10.8C15.7 9.99999 16.1 9.19998 16.7 8.59998L17.4 7.90002H17.5C18.3 7.90002 19 7.20002 19 6.40002C19 5.60002 18.3 4.90002 17.5 4.90002C16.7 4.90002 16 5.60002 16 6.40002V6.5L15.3 7.20001C14.7 7.80001 13.9 8.19999 13.1 8.29999C12.4 8.39999 11.6 8.39999 10.8 8.29999C9.99999 8.19999 9.20001 7.80001 8.60001 7.20001L7.89999 6.5V6.40002C7.89999 5.60002 7.19999 4.90002 6.39999 4.90002C5.59999 4.90002 4.89999 5.60002 4.89999 6.40002C4.89999 7.20002 5.59999 7.90002 6.39999 7.90002H6.5L7.20001 8.59998C7.80001 9.19998 8.19999 9.99999 8.29999 10.8C8.39999 11.5 8.39999 12.3 8.29999 13.1C8.19999 13.9 7.80001 14.7 7.20001 15.3L6.5 16H6.39999C5.59999 16 4.89999 16.7 4.89999 17.5C4.89999 18.3 5.59999 19 6.39999 19C7.19999 19 7.89999 18.3 7.89999 17.5V17.4L8.60001 16.7C9.20001 16.1 9.99999 15.7 10.8 15.6C11.5 15.5 12.3 15.5 13.1 15.6C13.9 15.7 14.7 16.1 15.3 16.7L16 17.4V17.5C16 18.3 16.7 19 17.5 19C18.3 19 19 18.3 19 17.5C19 16.7 18.3 16 17.5 16Z" fill="black"/>
+</svg>
+	
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">Link Parents - Students</span>
+										</a>
+									</div>
+								
+								</div>
+
+
+
+
+							
+
+							
+					
+								<div class="menu-item">
+									<div class="menu-content pt-8 pb-2">
+										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Administration</span>
+									</div>
+								</div>
+							
+
+
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<span class="menu-link">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
@@ -373,7 +409,7 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/subject">
+											<a class="menu-link" href="/records/subject">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -381,7 +417,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/subjectList">
+											<a class="menu-link" href="/records/subjectList">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -389,7 +425,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/teacherSubject">
+											<a class="menu-link" href="/records/teacherSubject">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -418,7 +454,7 @@
 									</span>
 									<div class="menu-sub menu-sub-accordion menu-active-bg">
 										<div class="menu-item">
-											<a class="menu-link" href="/lesson">
+											<a class="menu-link" href="/records/lesson">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -426,7 +462,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/timetable">
+											<a class="menu-link" href="/records/timetable">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -434,18 +470,79 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link" href="/addClassroom">
+											<a class="menu-link" href="/records/addClassroom">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
-												<span class="menu-title">Classrooms</span>
+												<span class="menu-title">Add Classroom</span>
 											</a>
 										</div>
-										
+											<div class="menu-item">
+											<a class="menu-link" href="/records/roomList">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">View Classrooms</span>
+											</a>
+										</div>
 										
 									</div>
 								</div>
 								
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<span class="menu-link">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M19 3.40002C18.4 3.40002 18 3.80002 18 4.40002V8.40002H14V4.40002C14 3.80002 13.6 3.40002 13 3.40002C12.4 3.40002 12 3.80002 12 4.40002V8.40002H8V4.40002C8 3.80002 7.6 3.40002 7 3.40002C6.4 3.40002 6 3.80002 6 4.40002V8.40002H2V4.40002C2 3.80002 1.6 3.40002 1 3.40002C0.4 3.40002 0 3.80002 0 4.40002V19.4C0 20 0.4 20.4 1 20.4H19C19.6 20.4 20 20 20 19.4V4.40002C20 3.80002 19.6 3.40002 19 3.40002ZM18 10.4V13.4H14V10.4H18ZM12 10.4V13.4H8V10.4H12ZM12 15.4V18.4H8V15.4H12ZM6 10.4V13.4H2V10.4H6ZM2 15.4H6V18.4H2V15.4ZM14 18.4V15.4H18V18.4H14Z" fill="black"/>
+<path d="M19 0.400024H1C0.4 0.400024 0 0.800024 0 1.40002V4.40002C0 5.00002 0.4 5.40002 1 5.40002H19C19.6 5.40002 20 5.00002 20 4.40002V1.40002C20 0.800024 19.6 0.400024 19 0.400024Z" fill="black"/>
+</svg>
+
+											</span>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">Exam </span>
+										<span class="menu-arrow"></span>
+									</span>
+									<div class="menu-sub menu-sub-accordion menu-active-bg">
+										<div class="menu-item">
+											<a class="menu-link" href="/records/examSchedule">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Add Exam</span>
+											</a>
+										</div>
+										<div class="menu-item">
+											<a class="menu-link" href="/records/examList">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Exam Timetable</span>
+											</a>
+										</div>
+									
+										<div class="menu-item">
+											<a class="menu-link" href="/records/examGrade">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">Exam Grades</span>
+											</a>
+										</div>
+
+											<div class="menu-item">
+											<a class="menu-link" href="/records/gradeList">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">View Exam Grades</span>
+											</a>
+										</div>
+										
+									</div>
+								</div>
 								
 
 
@@ -454,7 +551,7 @@
 								
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<div class="menu-item">
-										<a class="menu-link" href="/events">
+										<a class="menu-link" href="/records/events">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 												<span class="svg-icon svg-icon-2">
@@ -477,15 +574,41 @@
 
 
 
-						
-		<div class="menu-item">
+							<div class="menu-item">
 									<div class="menu-content pt-8 pb-2">
-										<span class="menu-section text-muted text-uppercase fs-8 ls-1">File Management</span>
+										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Data Migration</span>
 									</div>
 								</div>
 								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 									<div class="menu-item">
-										<a class="menu-link" href="/upload">
+										<a class="menu-link" href="/records/migrate">
+											<span class="menu-icon">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-2">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M11 6.5C11 9 9 11 6.5 11C4 11 2 9 2 6.5C2 4 4 2 6.5 2C9 2 11 4 11 6.5ZM17.5 2C15 2 13 4 13 6.5C13 9 15 11 17.5 11C20 11 22 9 22 6.5C22 4 20 2 17.5 2ZM6.5 13C4 13 2 15 2 17.5C2 20 4 22 6.5 22C9 22 11 20 11 17.5C11 15 9 13 6.5 13ZM17.5 13C15 13 13 15 13 17.5C13 20 15 22 17.5 22C20 22 22 20 22 17.5C22 15 20 13 17.5 13Z" fill="black"/>
+<path d="M17.5 16C17.5 16 17.4 16 17.5 16L16.7 15.3C16.1 14.7 15.7 13.9 15.6 13.1C15.5 12.4 15.5 11.6 15.6 10.8C15.7 9.99999 16.1 9.19998 16.7 8.59998L17.4 7.90002H17.5C18.3 7.90002 19 7.20002 19 6.40002C19 5.60002 18.3 4.90002 17.5 4.90002C16.7 4.90002 16 5.60002 16 6.40002V6.5L15.3 7.20001C14.7 7.80001 13.9 8.19999 13.1 8.29999C12.4 8.39999 11.6 8.39999 10.8 8.29999C9.99999 8.19999 9.20001 7.80001 8.60001 7.20001L7.89999 6.5V6.40002C7.89999 5.60002 7.19999 4.90002 6.39999 4.90002C5.59999 4.90002 4.89999 5.60002 4.89999 6.40002C4.89999 7.20002 5.59999 7.90002 6.39999 7.90002H6.5L7.20001 8.59998C7.80001 9.19998 8.19999 9.99999 8.29999 10.8C8.39999 11.5 8.39999 12.3 8.29999 13.1C8.19999 13.9 7.80001 14.7 7.20001 15.3L6.5 16H6.39999C5.59999 16 4.89999 16.7 4.89999 17.5C4.89999 18.3 5.59999 19 6.39999 19C7.19999 19 7.89999 18.3 7.89999 17.5V17.4L8.60001 16.7C9.20001 16.1 9.99999 15.7 10.8 15.6C11.5 15.5 12.3 15.5 13.1 15.6C13.9 15.7 14.7 16.1 15.3 16.7L16 17.4V17.5C16 18.3 16.7 19 17.5 19C18.3 19 19 18.3 19 17.5C19 16.7 18.3 16 17.5 16Z" fill="black"/>
+</svg>
+	
+												</span>
+												<!--end::Svg Icon-->
+											</span>
+											<span class="menu-title">Import Existing Students</span>
+										</a>
+									</div>
+
+								
+								</div>
+
+
+		<div class="menu-item">
+									<div class="menu-content pt-8 pb-2">
+										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Data Migration</span>
+									</div>
+								</div>
+								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div class="menu-item">
+										<a class="menu-link" href="/records/weight">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 												<span class="svg-icon svg-icon-2">
@@ -499,13 +622,13 @@
 												</span>
 												<!--end::Svg Icon-->
 											</span>
-											<span class="menu-title">Upload Pictures</span>
+											<span class="menu-title">Generate Monthly Reports</span>
 										</a>
 									</div>
 
 
 <div class="menu-item">
-										<a class="menu-link" href="/files">
+										<a class="menu-link" href="/records/genEmail2">
 											<span class="menu-icon">
 												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 												<span class="svg-icon svg-icon-2">
@@ -521,111 +644,7 @@
 												</span>
 												<!--end::Svg Icon-->
 											</span>
-											<span class="menu-title">Files</span>
-										</a>
-									</div>
-
-								
-								</div>
-
-
-
-
-								
-
-
-		<div class="menu-item">
-									<div class="menu-content pt-8 pb-2">
-										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Finance</span>
-									</div>
-								</div>
-								<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-									<div class="menu-item">
-										<a class="menu-link" href="/fees">
-												<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-												<span class="svg-icon svg-icon-2">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.3" d="M12.5 22C11.9 22 11.5 21.6 11.5 21V3C11.5 2.4 11.9 2 12.5 2C13.1 2 13.5 2.4 13.5 3V21C13.5 21.6 13.1 22 12.5 22Z" fill="black"/>
-<path d="M17.8 14.7C17.8 15.5 17.6 16.3 17.2 16.9C16.8 17.6 16.2 18.1 15.3 18.4C14.5 18.8 13.5 19 12.4 19C11.1 19 10 18.7 9.10001 18.2C8.50001 17.8 8.00001 17.4 7.60001 16.7C7.20001 16.1 7 15.5 7 14.9C7 14.6 7.09999 14.3 7.29999 14C7.49999 13.8 7.80001 13.6 8.20001 13.6C8.50001 13.6 8.69999 13.7 8.89999 13.9C9.09999 14.1 9.29999 14.4 9.39999 14.7C9.59999 15.1 9.8 15.5 10 15.8C10.2 16.1 10.5 16.3 10.8 16.5C11.2 16.7 11.6 16.8 12.2 16.8C13 16.8 13.7 16.6 14.2 16.2C14.7 15.8 15 15.3 15 14.8C15 14.4 14.9 14 14.6 13.7C14.3 13.4 14 13.2 13.5 13.1C13.1 13 12.5 12.8 11.8 12.6C10.8 12.4 9.99999 12.1 9.39999 11.8C8.69999 11.5 8.19999 11.1 7.79999 10.6C7.39999 10.1 7.20001 9.39998 7.20001 8.59998C7.20001 7.89998 7.39999 7.19998 7.79999 6.59998C8.19999 5.99998 8.80001 5.60005 9.60001 5.30005C10.4 5.00005 11.3 4.80005 12.3 4.80005C13.1 4.80005 13.8 4.89998 14.5 5.09998C15.1 5.29998 15.6 5.60002 16 5.90002C16.4 6.20002 16.7 6.6 16.9 7C17.1 7.4 17.2 7.69998 17.2 8.09998C17.2 8.39998 17.1 8.7 16.9 9C16.7 9.3 16.4 9.40002 16 9.40002C15.7 9.40002 15.4 9.29995 15.3 9.19995C15.2 9.09995 15 8.80002 14.8 8.40002C14.6 7.90002 14.3 7.49995 13.9 7.19995C13.5 6.89995 13 6.80005 12.2 6.80005C11.5 6.80005 10.9 7.00005 10.5 7.30005C10.1 7.60005 9.79999 8.00002 9.79999 8.40002C9.79999 8.70002 9.9 8.89998 10 9.09998C10.1 9.29998 10.4 9.49998 10.6 9.59998C10.8 9.69998 11.1 9.90002 11.4 9.90002C11.7 10 12.1 10.1 12.7 10.3C13.5 10.5 14.2 10.7 14.8 10.9C15.4 11.1 15.9 11.4 16.4 11.7C16.8 12 17.2 12.4 17.4 12.9C17.6 13.4 17.8 14 17.8 14.7Z" fill="black"/>
-</svg>
-
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-title">Fees Payments</span>
-										</a>
-									</div>
-
-
-<div class="menu-item">
-										<a class="menu-link" href="/expenses">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-												<span class="svg-icon svg-icon-2">
-														<span class="svg-icon svg-icon-2">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.3" d="M20 18H4C3.4 18 3 17.6 3 17V7C3 6.4 3.4 6 4 6H20C20.6 6 21 6.4 21 7V17C21 17.6 20.6 18 20 18ZM12 8C10.3 8 9 9.8 9 12C9 14.2 10.3 16 12 16C13.7 16 15 14.2 15 12C15 9.8 13.7 8 12 8Z" fill="black"/>
-<path d="M18 6H20C20.6 6 21 6.4 21 7V9C19.3 9 18 7.7 18 6ZM6 6H4C3.4 6 3 6.4 3 7V9C4.7 9 6 7.7 6 6ZM21 17V15C19.3 15 18 16.3 18 18H20C20.6 18 21 17.6 21 17ZM3 15V17C3 17.6 3.4 18 4 18H6C6 16.3 4.7 15 3 15Z" fill="black"/>
-</svg>
-
-
-
-											</span>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-title">Expenses</span>
-										</a>
-									</div>
-
-
-
-
-
-<div class="menu-item">
-										<a class="menu-link" href="/feesList">
-												<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-													<span class="svg-icon svg-icon-2">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="black"/>
-<rect x="7" y="17" width="6" height="2" rx="1" fill="black"/>
-<rect x="7" y="12" width="10" height="2" rx="1" fill="black"/>
-<rect x="7" y="7" width="6" height="2" rx="1" fill="black"/>
-<path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
-</svg>
-
-											</span>
-												<!--end::Svg Icon-->
-											</span>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-title">Fees Records</span>
-										</a>
-									</div>
-
-
-<div class="menu-item">
-										<a class="menu-link" href="/expensesList">
-											<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-													<span class="svg-icon svg-icon-2">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="black"/>
-<rect x="7" y="17" width="6" height="2" rx="1" fill="black"/>
-<rect x="7" y="12" width="10" height="2" rx="1" fill="black"/>
-<rect x="7" y="7" width="6" height="2" rx="1" fill="black"/>
-<path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
-</svg>
-
-											</span>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="menu-title">Expenses Records</span>
+											<span class="menu-title">Email Reports</span>
 										</a>
 									</div>
 
@@ -716,7 +735,7 @@
 							<!--end::Aside mobile toggle-->
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-								<a href="/dash" class="d-lg-none">
+								<a href="/records/dash" class="d-lg-none">
 									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-30px" />
 								</a>
 							</div>
@@ -734,7 +753,7 @@
 
 
 												<div class="menu-item">
-														<a class="menu-link  py-3" href="/dash">
+														<a class="menu-link  py-3" href="/records/dash">
 															
 															<span class="menu-title">Dashboard</span>
 														</a>
@@ -766,39 +785,65 @@
 														</span>
 														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/addStudent">
+																<a class="menu-link py-3" href="/records/addStudent">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Enroll Students</span>
+																	<span class="menu-title">Register New Students</span>
 																</a>
 															</div>
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/studentList">
+																<a class="menu-link py-3" href="/records/addClass">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">Add Student Classes</span>
+																</a>
+															</div>
+															<div class="menu-item">
+											<a class="menu-link py-3" href="/records/classList">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+												<span class="menu-title">View Classes</span>
+											</a>
+										</div>
+															<div class="menu-item">
+																<a class="menu-link py-3" href="/records/sudentList">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
 																	<span class="menu-title">View Students</span>
 																</a>
 															</div>
-															<div class="menu-item">
-											<a class="menu-link py-3" href="/import">
-												<span class="menu-bullet">
-													<span class="bullet bullet-dot"></span>
-												</span>
-												<span class="menu-title">Import Students</span>
-											</a>
-										</div>
-															<div class="menu-item">
-																<a class="menu-link py-3" href="/addLevel">
+
+																<div class="menu-item">
+																<a class="menu-link py-3" href="/records/import">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Learning Levels</span>
+																	<span class="menu-title">Import Students</span>
+																</a>
+															</div>
+															
+															<div class="menu-item">
+																<a class="menu-link py-3" href="/records/addLevel">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">Add Level - Grades</span>
 																</a>
 															</div>
 
-															
+															<div class="menu-item">
+																<a class="menu-link py-3" href="/records/viewLevels">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">View Level - Grades</span>
+																</a>
+															</div>
+
 
 
 														</div>
@@ -823,7 +868,7 @@
 														</span>
 														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/addTeacher">
+																<a class="menu-link py-3" href="/records/addTeacher">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -832,7 +877,7 @@
 															</div>
 														
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/importTeacher">
+																<a class="menu-link py-3" href="/records/importTeacher">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -841,97 +886,7 @@
 															</div>
 
 																<div class="menu-item">
-																<a class="menu-link py-3" href="/teacherList">
-																	<span class="menu-bullet">
-																		<span class="bullet bullet-dot"></span>
-																	</span>
-																	<span class="menu-title">View Teachers</span>
-																</a>
-															</div>
-															
-														</div>
-													</div>
-						
-						<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
-													<span class="menu-link py-3">
-															<span class="menu-icon">
-																<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-																<span class="svg-icon svg-icon-2">
-																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black"/>
-<rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black"/>
-<path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black"/>
-<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black"/>
-</svg>
-																</span>
-																<!--end::Svg Icon-->
-															</span>
-															<span class="menu-title">General Staff</span>
-															<span class="menu-arrow"></span>
-														</span>
-														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
-															<div class="menu-item">
-																<a class="menu-link py-3" href="/addStaff">
-																	<span class="menu-bullet">
-																		<span class="bullet bullet-dot"></span>
-																	</span>
-																	<span class="menu-title">Register Staff</span>
-																</a>
-															</div>
-														
-															<div class="menu-item">
-																<a class="menu-link py-3" href="/viewStaff">
-																	<span class="menu-bullet">
-																		<span class="bullet bullet-dot"></span>
-																	</span>
-																	<span class="menu-title">View Staff</span>
-																</a>
-															</div>
-
-															
-															
-														</div>
-													</div>
-						
-
-						<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
-													<span class="menu-link py-3">
-															<span class="menu-icon">
-																<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-																<span class="svg-icon svg-icon-2">
-																<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="black"/>
-<rect opacity="0.3" x="14" y="4" width="4" height="4" rx="2" fill="black"/>
-<path d="M4.65486 14.8559C5.40389 13.1224 7.11161 12 9 12C10.8884 12 12.5961 13.1224 13.3451 14.8559L14.793 18.2067C15.3636 19.5271 14.3955 21 12.9571 21H5.04292C3.60453 21 2.63644 19.5271 3.20698 18.2067L4.65486 14.8559Z" fill="black"/>
-<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="black"/>
-</svg>
-																</span>
-																<!--end::Svg Icon-->
-															</span>
-															<span class="menu-title">Teachers</span>
-															<span class="menu-arrow"></span>
-														</span>
-														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
-															<div class="menu-item">
-																<a class="menu-link py-3" href="/addTeacher">
-																	<span class="menu-bullet">
-																		<span class="bullet bullet-dot"></span>
-																	</span>
-																	<span class="menu-title">Add Teachers</span>
-																</a>
-															</div>
-														
-															<div class="menu-item">
-																<a class="menu-link py-3" href="/importTeacher">
-																	<span class="menu-bullet">
-																		<span class="bullet bullet-dot"></span>
-																	</span>
-																	<span class="menu-title">Import Teachers</span>
-																</a>
-															</div>
-
-																<div class="menu-item">
-																<a class="menu-link py-3" href="/teacherList">
+																<a class="menu-link py-3" href="/records/teacherList">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -953,24 +908,6 @@
 												</span>
 												<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
 												
-																<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-														<div class="menu-item">
-															<a class="menu-link" href="/classListX">
-															<span class="menu-icon">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z" fill="black"/>
-<path opacity="0.3" d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z" fill="black"/>
-</svg>
-
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-																<span class="menu-title">Classes</span>
-															</a>
-														</div>		
-													</div>
 															
 													<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
 													<span class="menu-link py-3">
@@ -992,7 +929,7 @@
 														</span>
 														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/subject">
+																<a class="menu-link py-3" href="/records/subject">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -1001,7 +938,7 @@
 															</div>
 														
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/subjectList">
+																<a class="menu-link py-3" href="/records/subjectList">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -1010,7 +947,7 @@
 															</div>
 
 																<div class="menu-item">
-																<a class="menu-link py-3" href="/teacherSubject">
+																<a class="menu-link py-3" href="/records/teacherSubject">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -1043,7 +980,7 @@
 														</span>
 														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/lesson">
+																<a class="menu-link py-3" href="/records/lesson">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -1052,7 +989,7 @@
 															</div>
 														
                                                         	<div class="menu-item">
-																<a class="menu-link py-3" href="/timetable">
+																<a class="menu-link py-3" href="/records/timetable">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -1061,23 +998,88 @@
 															</div>
 														
 															<div class="menu-item">
-																<a class="menu-link py-3" href="/addClassroom">
+																<a class="menu-link py-3" href="/records/addClassroom">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Classrooms</span>
+																	<span class="menu-title">Add Classroom</span>
 																</a>
 															</div>
 
-															
+																<div class="menu-item">
+																<a class="menu-link py-3" href="/records/roomList">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">View Classrooms</span>
+																</a>
+															</div>
 															
 														</div>
 														</div>
+															<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+													<span class="menu-link py-3">
+															<span class="menu-icon">
+																<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+																<span class="svg-icon svg-icon-2">
+																	<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.3" d="M19 3.40002C18.4 3.40002 18 3.80002 18 4.40002V8.40002H14V4.40002C14 3.80002 13.6 3.40002 13 3.40002C12.4 3.40002 12 3.80002 12 4.40002V8.40002H8V4.40002C8 3.80002 7.6 3.40002 7 3.40002C6.4 3.40002 6 3.80002 6 4.40002V8.40002H2V4.40002C2 3.80002 1.6 3.40002 1 3.40002C0.4 3.40002 0 3.80002 0 4.40002V19.4C0 20 0.4 20.4 1 20.4H19C19.6 20.4 20 20 20 19.4V4.40002C20 3.80002 19.6 3.40002 19 3.40002ZM18 10.4V13.4H14V10.4H18ZM12 10.4V13.4H8V10.4H12ZM12 15.4V18.4H8V15.4H12ZM6 10.4V13.4H2V10.4H6ZM2 15.4H6V18.4H2V15.4ZM14 18.4V15.4H18V18.4H14Z" fill="black"/>
+<path d="M19 0.400024H1C0.4 0.400024 0 0.800024 0 1.40002V4.40002C0 5.00002 0.4 5.40002 1 5.40002H19C19.6 5.40002 20 5.00002 20 4.40002V1.40002C20 0.800024 19.6 0.400024 19 0.400024Z" fill="black"/>
+</svg>
+
+																</span>
+																<!--end::Svg Icon-->
+															</span>
+															<span class="menu-title">Exams</span>
+															<span class="menu-arrow"></span>
+														</span>
+														<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
+															<div class="menu-item">
+																<a class="menu-link py-3" href="/records/examSchedule">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">Add Exam</span>
+																</a>
+															</div>
+														
+															<div class="menu-item">
+																<a class="menu-link py-3" href="/records/examList">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">Exam Timetable</span>
+																</a>
+															</div>
+
+																<div class="menu-item">
+																<a class="menu-link py-3" href="/records/examGrade">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">Exam Grades</span>
+																</a>
+															</div>
 															
+                                                       	<div class="menu-item">
+																<a class="menu-link py-3" href="/records/gradeList">
+																	<span class="menu-bullet">
+																		<span class="bullet bullet-dot"></span>
+																	</span>
+																	<span class="menu-title">View Exam Grades</span>
+																</a>
+															</div>
+
+
+														</div>
+
+													
+
+														</div>
 
 																<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 														<div class="menu-item">
-															<a class="menu-link" href="/events">
+															<a class="menu-link" href="/records/events">
 																<span class="menu-icon">
 																	<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
 																	<span class="svg-icon svg-icon-2">
@@ -1101,6 +1103,19 @@
 												
 											</div>
 
+	
+											<div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion me-lg-1">
+											
+
+
+												<div class="menu-item">
+														<a class="menu-link  py-3" href="/records/migrate">
+															
+															<span class="menu-title">Import Existing Students</span>
+														</a>
+													</div>
+												
+											</div>
 											
 											<div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion me-lg-1">
 											
@@ -1165,7 +1180,7 @@
 	
 
 														$.ajax({
-    url: '/not/'+id,
+    url: '/records/not/'+id,
     type: 'POST',
     contentType: "application/json",
 	
@@ -1222,7 +1237,7 @@
 																<span class="w-70px badge badge-light-success me-4">{{this.role}}</span>
 																<!--end::Code-->
 																<!--begin::Title-->
-																<a href="/notify/{{this._id}}" class="text-gray-800 text-hover-primary fw-bold">{{this.subject}}</a>
+																<a href="/records/notify/{{this._id}}" class="text-gray-800 text-hover-primary fw-bold">{{this.subject}}</a>
 
 															
 																<!--end::Title-->
@@ -1244,7 +1259,7 @@
 											
 													<!--begin::View more-->
 													<div class="py-3 text-center border-top">
-														<a href="/nList" class="btn btn-color-gray-600 btn-active-color-primary">View All
+														<a href="/records/nList" class="btn btn-color-gray-600 btn-active-color-primary">View All
 														<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 														<span class="svg-icon svg-icon-5">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -1273,7 +1288,7 @@
 										<!--begin::Menu wrapper-->
 										<div class="btn btn-icon btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px position-relative" id="kt_drawer_chat_toggle" onclick="msgClick('{{pro._id}}')">
 											<!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
-											<a href="/msgX" class="svg-icon svg-icon-1">
+											<a href="/records/msgX" class="svg-icon svg-icon-1">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="black" />
 													<rect x="6" y="12" width="7" height="2" rx="1" fill="black" />
@@ -1298,7 +1313,7 @@
 
 												
 														$.ajax({
-    url: '/msg/'+id,
+    url: '/records/msg/'+id,
     type: 'POST',
     contentType: "application/json",
 	
@@ -1367,7 +1382,7 @@
 											<!--end::Menu separator-->
 											<!--begin::Menu item-->
 											<div class="menu-item px-5">
-												<a href="/profile" class="menu-link px-5">My Profile</a>
+												<a href="/records/profile" class="menu-link px-5">My Profile</a>
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
@@ -1431,7 +1446,7 @@
 								<!--begin::Page title-->
 								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 									<!--begin::Title-->
-									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Teachers
+									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">
 									<!--begin::Separator-->
 									<span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
 									<!--end::Separator-->
@@ -1449,7 +1464,7 @@
 									<!--begin::Secondary button-->
 									<!--end::Secondary button-->
 									<!--begin::Primary button-->
-									<a href="/teacherList" class="btn btn-sm btn-primary"  data-bs-target="#kt_modal_create_app">View Teachers</a>
+									<!--<a href="#" class="btn btn-sm btn-primary"  data-bs-target="#kt_modal_create_app">View Classrooms</a>
 									<!--end::Primary button-->
 								</div>
 								<!--end::Actions-->
@@ -1479,27 +1494,13 @@
 													<!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
 													
 													<!--end::Svg Icon-->
-													<h2>{{title}}</h2>
+													<h2>Change ID Number</h2>
 												</div>
 												<!--end::Card title-->
 											</div>
 											<!--end::Card header-->
 											<!--begin::Card body-->
 											<div class="card-body pt-5">
-												
-																	<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-        <div id="success" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
-            {{ successMsg }}
-     
-        </div>
-    </div>
-						
-		<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-        <div id="danger" class="alert alert-danger" {{#if noMessages2}}hidden{{/if}}>
-            {{ errorMsg }}
-     
-        </div>
-    </div>	
 												<!--begin::Form-->
 												               	{{# if success }}
     <section class="success">
@@ -1521,46 +1522,14 @@
             <strong>{{message.intro}}</strong>{{message.message}}
         </div>
         {{/if}}
-												<form id="kt_ecommerce_settings_general_form" class="form" method="post" action="/addTeacher" >
+												<form id="kt_ecommerce_settings_general_form" class="form" method="post" action="/idEdit" >
 													<!--begin::Input group-->
 													<div class="mb-7">
 														<!--begin::Label-->
-														<label class="fs-6 fw-bold mb-3">
-															<span>Upload Photo</span>
-															<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Allowed file types: png, jpg, jpeg."></i>
-														</label>
+													
 														<!--end::Label-->
 														<!--begin::Image input wrapper-->
-														<div class="mt-1">
-															<!--begin::Image input-->
-															<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
-																<!--begin::Preview existing avatar-->
-																<div class="image-input-wrapper w-100px h-100px" style="background-image: url('assets/media/svg/avatars/blank.svg')"></div>
-																<!--end::Preview existing avatar-->
-																<!--begin::Edit-->
-																<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-																	<i class="bi bi-pencil-fill fs-7"></i>
-																	<!--begin::Inputs-->
-																	<input type="file" name="file" accept=".png, .jpg, .jpeg"  {{readonly}} />
-																	<input type="hidden" name="avatar_remove" />
-																	<!--end::Inputs-->
-																</label>
-																<!--end::Edit-->
-																<!--begin::Cancel-->
-																<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																	<i class="bi bi-x fs-2"></i>
-																</span>
-																<!--end::Cancel-->
-																<!--begin::Remove-->
-																<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-																	<i class="bi bi-x fs-2"></i>
-																</span>
-																<!--end::Remove-->
-															</div>
-															<!--end::Image input-->
-														</div>
-														<!--end::Image input wrapper-->
-													</div>
+														
 													<!--end::Input group-->
 																<!--begin::Row-->
 													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
@@ -1570,217 +1539,31 @@
 															<div class="fv-row mb-7">
 																<!--begin::Label-->
 																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">User ID</span>
+																	<span class="required">ID Number</span>
 																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" ></i>
 																</label>
 																<!--end::Label-->
 																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" name="uid" id="uid" value="{{uid}}"  {{readonly}} />
+																<input type="number" class="form-control" name="idNumber" id="idNumber"  value="{{pro.idNumber}}"  >
 																<!--end::Input-->
 															</div>
 															<!--end::Input group-->
 														</div>
 														<!--end::Col-->
 														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span>Name</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" ></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" name="name" id="name" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Col-->
-													</div>
-													<!--end::Row-->
-													<!--begin::Row-->
-													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">Surname</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title=""></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" name="surname" id="surname" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Col-->
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span>Address</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title=""></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" name="address" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Col-->
-													</div>
-													<!--end::Row-->
-													<!--begin::Row-->
-													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span>Gender</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title=""></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-															<div class="w-100">
-																	<!--begin::Select2-->
-																	<select class="form-select form-select-solid" name="gender"  {{readonly}}  >
-																		<option></option>
-																		<option value="male" >Male</option>
-																		<option value="female" >Female</option>
-																	
-																		
-																	</select>
-																	<!--end::Select2-->
-																</div>
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Col-->
 														
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">DOB</span>
-																</label>
-																<!--end::Label-->
-																<input type="date" class="form-control form-control-solid" name="dob" id="dob" value=""  {{readonly}} />
-															</div>
-															<!--end::Input group-->
-														</div>
 														<!--end::Col-->
 													</div>
+													<!--end::Row-->
+													<!--begin::Row-->
+												
+													<!--end::Row-->
+													<!--begin::Row-->
+												
 													<!--end::Row-->
                                          
 
-   								<!--begin::Row-->
-													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">Email</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title=""></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="email" class="form-control form-control-solid" name="email" id="email" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Col-->
-												<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">Phone</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title=""></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" name="mobile" id="mobile" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-													</div>
-													<!--end::Row-->
-
-
-                              
-
-  
-                                                    								<!--begin::Row-->
-													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-														<!--begin::Col-->
-														
-														<!--end::Col-->
-														<!--begin::Col-->
-														<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span>Password</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" ></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="password" class="form-control form-control-solid" name="password" id="password" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-
-
-														<!--end::Col-->
-<div class="col">
-															<!--begin::Input group-->
-															<div class="fv-row mb-7">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mt-3">
-																	<span class="required">Confirm Password</span>
-																	<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip"></i>
-																</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<input type="password" class="form-control form-control-solid" name="confirmPassword" id="confirmPassword" value=""  {{readonly}} />
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-														</div>
-
-													</div>
-													<!--end::Row-->
-
-                                                    								<!--begin::Row-->
-													<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
-														<!--begin::Col-->
-														
-														<!--end::Col-->
-														<!--begin::Col-->
-													
-														<!--end::Col-->
-													</div>
-													<!--end::Row-->
-													<!--begin::Input group-->
+   											<!--begin::Input group-->
 												
 													<!--end::Input group-->
 													<!--begin::Separator-->
@@ -1789,8 +1572,7 @@
 													<!--begin::Action buttons-->
 													<div class="d-flex justify-content-end">
 														<!--begin::Button-->
-														 <button  class="btn btn-light me-3" ><a href="/idEditTeacher" >Change ID Sequence</a></button>
-														<!--<button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">Cancel</button>
+														<button type="reset" data-kt-contacts-type="cancel" class="btn btn-light me-3">Cancel</button>
 														<!--end::Button-->
 														<!--begin::Button-->
 														<button type="submit" class="btn btn-primary">

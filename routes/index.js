@@ -3,31 +3,27 @@ require("../config5/keys")
 var express = require('express');
 var router = express.Router();
 const User =require('../models/user')
-const Trip =require('../models/trip')
-const Setup =require('../models/setup')
-const Report =require('../models/reports')
 const Class1 =require('../models/class');
-const ExpV =require('../models/expV');
-const ExpSub =require('../models/expSub');
-let pdf = require('html-pdf');
-const Report2 = require('../models/reportsT');
-const Enroll = require('../models/enroll');
-var Learn = require('../models/learn');
-const puppeteer = require('puppeteer')
+const ClassV =require('../models/classV');
+const CodeV =require('../models/codev');
+const AlloCode =require('../models/alloCode');
+const AlloSub =require('../models/alloSub');
+const CodeSub =require('../models/codeSub');
+const SubV =require('../models/subV');
+const CodeLevel =require('../models/codeLevel');
+const LevelV =require('../models/levelV');
 const Subject =require('../models/subject');
-const Student =require('../models/studentStats');
 const Fees =require('../models/fees');
+const Report = require('../models/reports');
+const Calendar =require('../models/calendar');
 var Message = require('../models/message');
 var Recepient = require('../models/recepients');
-var Note = require('../models/note');
-const Num =require('../models/num');
-var hbs = require('handlebars');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
-const Demo =require('../models/demo');
-const Poll2 =require('../models/poll2');
+const Student =require('../models/studentStats');
+let pdf = require('html-pdf');
+const Report2 = require('../models/reportsT');
 const Grade =require('../models/grade');
-const { Paynow } = require("paynow");
-const Subscriptions =require('../models/subscriptions');
+var Note = require('../models/note');
+const Level =require('../models/level');
 const Dept =require('../models/dept');
 const Test =require('../models/classTest');
 const Lesson =require('../models/lesson');
@@ -40,6 +36,7 @@ const Stats =require('../models/stats');
 const Gender =require('../models/gender');
 const Pass =require('../models/passRate');
 const PassX =require('../models/passRateX');
+
 const TeacherClassRate = require('../models/tcPassRateX')
 const TeacherExamRate = require('../models/tcPassRate')
 const Expenses = require('../models/expenses')
@@ -51,7 +48,6 @@ var Quiz = require('../models/quiz');
 const stripe = require('stripe')('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');
 const keys = require('../config1/keys')
 var mongoose = require('mongoose')
-var mongodb = require('mongodb');
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const jwt = require('jsonwebtoken');
@@ -64,12 +60,16 @@ var multer = require('multer')
 const fs = require('fs-extra')
 var path = require('path');
 var bcrypt = require('bcrypt-nodejs');
+var hbs = require('handlebars');
+const puppeteer = require('puppeteer')
 var passport = require('passport')
 var moment = require('moment')
 var bcrypt = require('bcrypt-nodejs');
-const { countReset } = require('console');
-
 const crypto = require('crypto');
+
+
+
+
 
 const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
@@ -4120,116 +4120,254 @@ process.exit()*/
 
 })
 
+/*
+router.get('/addStaff',isLoggedIn,records, function(req,res){
+  var actualCount = req.user.actualCount
+  var count = req.user.count
+  var pro = req.user
+  var prefix = req.user.prefix
+  var idNum = req.user.idNumber
+idNum++
+  var uid = prefix + idNum
+  var title
+  var readonly 
 
-router.get('/stEurit',function(req,res){
-  res.render('eurit/index')
-})
-router.get('/about',function(req,res){
-  res.render('eurit/about')
-})
-router.get('/open',function(req,res){
-  res.render('eurit/openDay')
-})
+    title = "Add Staff"
+    readonly = ""
+    res.render('admin/staff',{pro:pro,uid1:uid, title:title,readonly})
+  
 
-router.get('/form',function(req,res){
+})*/
+
+router.get('/addStaff',isLoggedIn,adminX, function(req,res){
   var errorMsg = req.flash('danger')[0];
   var successMsg = req.flash('success')[0];
-  res.render('eurit/form',{successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
-  //res.render('eurit/form')
+  var pro = req.user
+  var prefix = req.user.prefix
+  var idNum = req.user.idNumber
+idNum++
+  var uid = prefix + idNum
+  var title
+  var readonly 
+
+title = "You've Reached Maximum Users Limit"
+readonly = 'readonly'
+res.render('admin/staff2',{pro:pro,uid1:uid,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
+
+
 })
 
-
-router.post('/form',function(req,res){
-  var salutation = req.body.q3_salutation
-  var firstName = req.body.firstName
-  var lastName = req.body.lastName
-  var address = req.body.address
-  var address1 = req.body.address1
-  var city = req.body.city
-  var state = req.body.state
-  var postal = req.body.postal
-  var phone = req.body.phoneNumber
+router.post('/addStaff',isLoggedIn,adminX, function(req, res, next) {
+  var pro = req.user
+  var uid = req.body.uid;
+  var name = req.body.name;
+  var surname = req.body.surname;
+  var fullname = name +" "+ surname
+  var mobile = req.body.mobile;
+  var gender = req.body.gender;
+  var dob = req.body.dob;
+  var role = req.body.role;
+  var password = req.body.password;
+  var term = req.user.term
+  var year = req.user.year
   var email = req.body.email
-  var child1 = req.body.child1
-  var child2 = req.body.child2
-  var child3 = req.body.child3
-  var child4 = req.body.child4
-  var age1 = req.body.age1
-  var age2 = req.body.age2
-  var age3 = req.body.age3
-  var age4 = req.body.age4
-  var level1 = req.body.level1
-  var level2 = req.body.level2
-  var level3 = req.body.level3
-  var level4 = req.body.level4
-  req.check('city','Enter City').notEmpty();
-  req.check('state','Enter State').notEmpty();
-  req.check('postal','Postal Address').notEmpty();
-  req.check('phoneNumber','Enter Phone Number').notEmpty();
-  req.check('email','Enter Email').isEmail();
-  req.check('child1','Enter Child').notEmpty();
-  req.check('age1','Enter Child Age').notEmpty();
-  req.check('level1','Enter Year Level').notEmpty();
-  
+  var prefix = req.user.prefix
+  var suffix = req.user.suffix
+ var expdate = req.user.expdate
+ var expStr = req.user.expStr
 
+var id =   req.user._id
+var schoolName = req.user.schoolName
+var count = req.user.count
+var actualCount = req.user.actualCount
+var duration = req.user.duration
 
-  var errors = req.validationErrors();
-
-  if (errors) {
-  
-  
-  req.session.errors = errors;
-  req.session.success = false
-  //res.render('eurit/batch',{errors:req.session.errors,pro:pro})
-  
-  req.flash('danger', req.session.errors[0].msg);
-         
-          
-          res.redirect('/form');
-  
-  
-  }else{
-
-
-    
-  var enroll = new Enroll();
-enroll.salutation = salutation
-enroll.firstName = firstName
-enroll.lastName = lastName
-enroll.address = address
-enroll.address1 = address1
-enroll.city = city
-enroll.state = state
-enroll.postal = postal
-enroll.phone = phone
-enroll.email = email
-enroll.child1 = child1
-enroll.child2 = child2
-enroll.child3 = child3
-enroll.child4 = child4
-enroll.age1=age1
-enroll.age2 = age2
-enroll.age3=age3
-enroll.age4 = age4
-enroll.level1 = level1
-enroll.level2 = level2
-enroll.level3 = level3
-enroll.level4 = level4
-
-
-enroll.save()
-.then(user =>{
-  
-req.flash('success', 'File Uploaded Successfully!');
-
-res.redirect('/form')
-
-})
-
-  }
-
+var idNumber = req.user.idNumber
+var prefix1 = req.user.prefix
+var idNum1 = req.user.idNumber
+var idNumX = req.user.idNumX
+var uid1 = prefix1 + idNum1
  
-})
+  req.check('name','Enter Name').notEmpty();
+  req.check('surname','Enter Surname').notEmpty();
+  req.check('email','Enter email').notEmpty().isEmail();
+  req.check('dob','Enter Date Of Birth').notEmpty();
+  req.check('uid','Enter Student ID').notEmpty();
+  req.check('gender','Enter Gender').notEmpty();
+  req.check('role', 'Enter Role').notEmpty();
+  req.check('mobile', 'Enter Phone Number').notEmpty();
+  req.check('password', 'Password do not match').isLength({min: 4}).equals(req.body.confirmPassword);
+      
+    
+ 
+     
+  var errors = req.validationErrors();
+      if (errors) {
+        
+        req.session.errors = errors;
+        req.session.success = false;
+        req.flash('danger', req.session.errors[0].msg);
+       
+        
+        res.redirect('/addStaff');
+}
+     {
+        User.findOne({'uid':uid})
+        .then(user =>{
+            if(user){ 
+          // req.session.errors = errors
+            //req.success.user = false;
+        
+      req.flash('danger', 'Email/User already in use');
+ 
+      res.redirect('/addStaff');
+      }
+      
+    
+       
+              else {
+          
+                
+                actualCount++
+                idNumber++ 
+                actualCount + 1
+                let idNumQ = idNumber + 1
+                let uid9 = prefix + idNumQ
+                User.findByIdAndUpdate(id,{$set:{idNumber:idNumber,actualCount:actualCount}},function(err,ocs){
+                  var user = new User();
+                                    user.uid = uid;
+                                    user.name = name;
+                                    user.surname = surname;
+                                    user.fullname = fullname;
+                                    user.email = email;
+                                    user.role = role;
+                                    user.prefix = prefix;
+                                    user.suffix = suffix;
+                                 
+                                    user.gender = gender;
+                                    user.dob = dob;
+                                    user.mobile= mobile;
+                                    user.studentId = 'null'
+                                    user.teacherName='null'
+                                    user.teacherId = 'null'
+                                    user.grade = 0;
+                                    user.idNumber= idNumber;
+                                    user.idNumX = idNumX;
+                                    user.class1 = 'null';
+                                    user.mobile = mobile;
+                                    user.classLength = 0;
+                                    user.classNo = 0
+                                    user.studentNum = 0;
+                                    user.uidNum = 309;
+                                    user.number = 0;
+                                    user.schoolName=schoolName
+                                    user.examDate = 'null';
+                                    user.feeStatus = 'null';
+                                    user.feesUpdate = 'null';
+                                    user.term = term;
+                                    user.amount = 0;
+                                    user.receiptNumber = 0;
+                                    user.possibleMark = 0;
+                                    user.topic = 'null';
+                                    user.year = year;
+                                    user.recNumber = 0;
+                                    user.balance = 0;
+                                    user.balanceCarriedOver = 0;
+                                    user.status = 'null';
+                                    user.paymentId = 'null';
+                                    user.role1 = 'staff'
+                                    user.photo = 'propic.jpg';
+                                    user.level = 'null';
+                                    user.pollUrl='null'
+                                    user.annual =0
+                                    user.fees = 0
+                                    user.paynow = 0
+                                    user.type = 'null';
+                                    user.address = 'null';
+                                    user.dept = 'null';
+                                    user.subject = 0;
+                                    user.subjectCode = 'null'
+                                    user.subjects = 'null'
+                                    user.dept = 'null';
+                                    user.expdate=expdate;
+                                    user.expStr = expStr; 
+                                    user.duration = duration;   
+                                    user.levelX = 'null';
+                                    user.status4 = 'null';
+                                    user.status3 = "null"
+                                    user.pollUrl2 = "null"
+                                    user.count= count
+                                    user.pollCount = 0
+                                    user.actualCount = actualCount   
+                                    user.startYear = year
+                                    user.currentYearCount = 0
+                                    user.stdYearCount = 0
+                                    user.admissionYear = 0  
+                                    user.password = user.encryptPassword(password)
+                                    user.icon = 'null'
+                                    user.subjectNo = 0
+                                    user.quizDuration = 0
+                                    user.inboxNo = 0
+                                    user.quizNo= 0
+                                    user.quizBatch =0
+                                    user.quizId = 'null'
+                                    user.testId = 'null'
+                                    user.industry= "null"
+                                    user.save()
+                                      .then(user =>{
+                                       
+                                      
+                                          
+                                     
+      req.flash('success', 'User successfully added');
+ 
+      res.redirect('/addStaff');
+                                      })
+                 
+                 
+                })
+                 
+                   
+              }
+          })
+    
+      }
+            
+      
+    })
+    
+    
+       
+    
+      
+      
+
+
+
+
+    router.get('/viewStaff',isLoggedIn,adminX,(req, res) => {
+      var pro = req.user
+      
+      User.find({role1:"staff"},(err, docs) => {
+          if (!err) {
+              res.render("admin/list4", {
+                  listX: docs, pro:pro
+                  
+              });
+          }
+          else {
+              console.log('Error in retrieving Student list :' + err);
+          }
+      });
+      });
+      
+      
+
+        
+  
+
+
+
 
 
 
@@ -4238,7 +4376,7 @@ res.redirect('/form')
     router.get('/profile',isLoggedIn ,records,function(req,res){
       var pro = req.user
       var user = req.user
-      res.render('hurlings/admin/overview',{pro:pro,user:user})
+      res.render('hurlings/students/overviewAdmin',{pro:pro,doc:user})
     })
 
 
@@ -4331,43 +4469,43 @@ router.get('/fix',isLoggedIn,records,function(req,res){
 
       //add student
 
-router.get('/addStudent',isLoggedIn,records,  function(req,res){
+router.get('/addStudent',isLoggedIn,  function(req,res){
 var pro = req.user
-var actualCount = req.user.actualCount
-var count = req.user.count
+var errorMsg = req.flash('danger')[0];
+var successMsg = req.flash('success')[0];
 var prefix = req.user.prefix
 var title, readonly
 var idNum=req.user.idNumber
 idNum++
 var uid = prefix+idNum
 
-if(actualCount < count){
+//if(actualCount < count){
 
   Class1.find({},function(err,docs){
     Level.find({},function(err,gocs){
 
    var arr = gocs
     var arr1 = docs;
-    title = "Add Students"
-    readonly =" "
+ 
    var classes = docs.length;
-    if(classes == 0){
+    /*if(classes == 0){
       res.redirect('/hurlings/addClass')
-    }else
-    res.render('hurlings/students/admit',{arr1:arr1,arr:arr,pro:pro,uid1:uid,title:title,readonly:readonly})
-      
+    }else{*/
+    res.render('hurlings/students/admit',{arr1:arr1,arr:arr,pro:pro,uid1:uid,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg})
+    
     })
   })
+//}
 
-}else
+/*}else
 
 
-res.redirect('/hurlings/addStudentX')
+res.redirect('/hurlings/addStudentX')*/
   
 })
 
 
-router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req, res, next) {
+router.post('/addStudent',isLoggedIn,upload.single('file'),function(req, res, next) {
   var m = moment()
   var m = moment()
   var year = m.format('YYYY')
@@ -4429,12 +4567,16 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
     var errors = req.validationErrors();
 
         if (errors) {
-          Class1.find({}, function(err,docs){
-            var arr1 = docs;  
+  
           req.session.errors = errors;
           req.session.success = false;
-          res.render('hurlings/students/admit',{ errors:req.session.errors, arr1:arr1,pro:pro})
-    })
+          //res.render('hurlings/students/admit',{ errors:req.session.errors, arr1:arr1,pro:pro})
+
+          req.flash('danger', req.session.errors[0].msg);
+       
+        
+          res.redirect('/addStudent');
+  
         
       }
       else
@@ -4445,17 +4587,10 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
             if(user){ 
           // req.session.errors = errors
             //req.success.user = false;
-            Class1.find({}, function(err,docs){
-              var arr1 = docs;
-           req.session.message = {
-             type:'errors',
-             message:'student already in the system'
-           }     
-           
-              res.render('hurlings/students/admit', {
-                   message:req.session.message ,arr1:arr1,pro:pro
-              }) 
-            })
+              
+      req.flash('danger', 'Email/User already in use');
+ 
+      res.redirect('/addStudent');
       }
       
                     else  {   
@@ -4542,7 +4677,7 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
                       user.parentId = 'null'
                       user.save()
                         .then(user =>{
-                          const CLIENT_URL = 'http://' + req.headers.host;
+                        /*  const CLIENT_URL = 'http://' + req.headers.host;
       
                           const output = `
                           <h2>Please click on below link to activate your account</h2>
@@ -4565,7 +4700,7 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
                     
                           // send mail with defined transport object
                           const mailOptions = {
-                              from: '"Admin" <cashreq00@gmail.com>', // sender address
+                              from: '"Admin" <kratosmusasa@gmail.com>', // sender address
                               to: email, // list of receivers
                               subject: "Account Verification ✔", // Subject line
                               html: output, // html body
@@ -4597,16 +4732,16 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
                                   
                                   res.render('hurlings/students/admit', {message:req.session.message,pro:pro}) 
                                 })
-                              }
+                              }*/
                           
                      
-                          User.findByIdAndUpdate(id,{$set:{uidNum:idNum}},function(err,locs){
+                          User.findByIdAndUpdate(id,{$set:{idNumber:idNumber}},function(err,locs){
                           
-                          
-                          res.redirect('/hurlings/addStudent')
+                            req.flash('success', 'Student Registered Successfully');
+                          res.redirect('/addStudent')
                           })
                        
-                      })
+                      
     
                     })
                     }
@@ -4624,6 +4759,44 @@ router.post('/addStudent',isLoggedIn,records,upload.single('file'),function(req,
     
                       
     })
+    
+
+
+    router.get('/idEdit',isLoggedIn,records,function(req,res){
+      var pro = req.user
+      res.render('records/idNum',{pro:pro})
+      
+      })
+      
+      router.post('/idEdit',isLoggedIn, records,function(req,res){
+           var pro = req.user
+      var idNumber = req.body.idNumber;
+      var id = req.user._id
+    
+      
+        req.check('idNumber','Enter ID Number').notEmpty();
+       
+       
+        var errors = req.validationErrors();
+        if (errors) {
+       
+          req.session.errors = errors;
+          req.session.success = false;
+          res.render('records/idNum',{errors:req.session.errors,pro:pro})
+       
+        
+       }
+       else
+      User.findByIdAndUpdate(id,{$set:{idNumber:idNumber}},function(err,docs){
+    
+        req.flash('success', 'ID sequence changed successfully');
+     
+        res.redirect('/addStudent');
+      })
+    
+      })
+    
+    
     
                  //importing students details from excel
   
@@ -6505,8 +6678,8 @@ router.get('/addTeacher',isLoggedIn,records,  function(req,res){
    var pro = req.user
    var actualCount = req.user.actualCount
    var count = req.user.count
-   var title
-    var readonly
+   var errorMsg = req.flash('danger')[0];
+   var successMsg = req.flash('success')[0];
     var idNum = req.user.idNumber
     idNum++
     var prefix = req.user.prefix
@@ -6514,21 +6687,21 @@ router.get('/addTeacher',isLoggedIn,records,  function(req,res){
     
 
 
-    if(actualCount < count){
+   // if(actualCount < count){
       title = "Add Teachers"
       readonly = ""
-      Dept.find({},function(err,docs){
+     /* Dept.find({},function(err,docs){
         var arr1 = docs;
     
       if(docs.length == 0){
        res.redirect('/dept')
      }
-    else
+    else*/
      
-       res.render('hurlings/teacher/admit', { arr1:arr1,pro:pro,uid:uid,readonly:readonly});
-       })
+       res.render('hurlings/teacher/admit', { pro:pro,uid:uid,successMsg: successMsg,errorMsg:errorMsg, noMessages: !successMsg,noMessages2:!errorMsg});
+     //  })
     
-    }
+   // }
   
 })
 
@@ -6540,7 +6713,7 @@ var readonly = ''
 
 
 
-res.render('hurlings/teacher/admit',{pro:pro,readonly:readonly, title:title})
+res.render('hurlings/teacher/admit',{pro:pro})
 })
 
 router.post('/addTeacher',isLoggedIn,records, function(req,res){
@@ -6550,7 +6723,7 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
                 var uid = req.body.uid;
                 var name = req.body.name;
                 var teacher = 'teacher'
-                var dept = req.body.dept
+                //var dept = req.body.dept
                 var surname = req.body.surname;
                 var role = 'teacher';
                 var mobile = req.body.mobile;
@@ -6590,14 +6763,14 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
                    
                 var errors = req.validationErrors();
                     if (errors) {
-                      Dept.find({},function(err,docs){
-                        var arr1 = docs;
+                     
                     
                       req.session.errors = errors;
                       req.session.success = false;
-                      res.render('hurlings/teacher/admit',{ errors:req.session.errors,uid:uid1,arr1:arr1,pro:pro,pre:prefix})
-                      })
-                    
+                      req.flash('danger', req.session.errors[0].msg);
+       
+        
+                      res.redirect('/addTeacher');
                   }
                   else
                 
@@ -6607,17 +6780,10 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
                         if(user){ 
                       // req.session.errors = errors
                         //req.success.user = false;
-                        Dept.find({},function(err,docs){
-                          var arr1 = docs;
-                       req.session.message = {
-                         type:'errors',
-                         message:'user id already in use'
-                       }     
-                       
-                          res.render('hurlings/teacher/admit', {
-                              message:req.session.message, uid:uid1, pro:pro  }) 
-                          })
-                        
+                            
+      req.flash('danger', 'Email/User already in use');
+ 
+      res.redirect('/addTeacher');
                   }
                   
                                 else  {   
@@ -6670,7 +6836,7 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
                   user.subject = 0;
                   user.subjects = 'null'
                   user.subjectCode = 'null'
-                  user.dept = dept;
+                  user.dept = "null";
                   user.paynow = 0
                  
                   user.expdate=expdate;
@@ -6736,7 +6902,11 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
 
                 
                 }
-
+                User.findByIdAndUpdate(id,{$set:{idNumber:idNum}},function(err,locs){
+                          
+                  req.flash('success', 'Teacher Added Successfully');
+                res.redirect('/addTeacher')
+                })
                     })
                   }
               
@@ -6750,6 +6920,43 @@ router.post('/addTeacher',isLoggedIn,records, function(req,res){
 
                   
 })
+
+
+
+
+router.get('/idEditTeacher',isLoggedIn,records,function(req,res){
+  var pro = req.user
+  res.render('hurlings/students/idNumX',{pro:pro})
+  
+  })
+  
+  router.post('/idEditTeacher',isLoggedIn, records,function(req,res){
+       var pro = req.user
+  var idNumber = req.body.idNumber;
+  var id = req.user._id
+
+  
+    req.check('idNumber','Enter ID Number').notEmpty();
+   
+   
+    var errors = req.validationErrors();
+    if (errors) {
+   
+      req.session.errors = errors;
+      req.session.success = false;
+      res.render('hurlings/students/idNumX',{errors:req.session.errors,pro:pro})
+   
+    
+   }
+   else
+  User.findByIdAndUpdate(id,{$set:{idNumber:idNumber}},function(err,docs){
+
+    req.flash('success', 'ID sequence changed successfully');
+ 
+    res.redirect('/addTeacher');
+  })
+
+  })
 
 
  //importing teachers details from excel
@@ -7641,7 +7848,7 @@ router.get('/staffList',isLoggedIn,(req, res) => {
       
    
     //var pro = req.user
-    res.render('/hurlings/admin/overviewRecords',{doc:doc,id:id,pro:doc})
+    res.render('hurlings/admin/overviewRecords',{doc:doc,id:id,pro:doc})
     
   })
     })

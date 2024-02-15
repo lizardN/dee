@@ -1115,7 +1115,7 @@ router.get('/std',isLoggedIn,records,function(req,res){
   var year = m.format('YYYY')
   var currCount = req.user.currentYearCount
   var startYear = req.user.startYear
-  console.log(currCount,'currCount')
+ // console.log(currCount,'currCount')
   Student.find({},function(err,locs){
     if(locs.length == 0){
 var std = Student();
@@ -1167,7 +1167,7 @@ Student.find({},function(err,docs){
 
    
     let total = nocs.length;
-    console.log('totalxxx',total)
+    //console.log('totalxxx',total)
 
   
 let id = docs[0]._id;
@@ -1232,7 +1232,7 @@ if(currCount == 0){
 
     
     }else{
-     console.log('docs')
+     //console.log('docs')
     }
     })
     res.redirect('/records/dash')
@@ -1327,7 +1327,7 @@ if(currCount == 0){
     
     
       User.find({role:'student'},function(err,docs) {
-        console.log(docs,'docs')
+        //console.log(docs,'docs')
         for(var i = 0;i<docs.length;i++){
     size = docs.length
        
@@ -1407,7 +1407,7 @@ if(currCount == 0){
       router.post('/stdStatsChart99',isLoggedIn,records, function(req,res){
         var m = moment()
         var year = m.format('YYYY')
-        var count = req.user.currentYearCount
+        //var count = req.user.currentYearCount
      
               Student.find({},function(err,docs){
                 if(docs == undefined){
@@ -6028,7 +6028,9 @@ router.get('/idEdit',isLoggedIn,records,function(req,res){
    else
   User.findByIdAndUpdate(id,{$set:{idNumber:idNumber}},function(err,docs){
 
-    res.redirect('/records/addStudent')
+    req.flash('success', 'ID sequence changed successfully');
+ 
+    res.redirect('/addStudent');
   })
 
   })

@@ -7,7 +7,7 @@ $.ajax({
    
     dataType: 'json',
     type: 'POST',
-    url: "/statChart",
+    url: "/records/statChart",
     success: function(data) {
     console.log(data)
      for (var i = 0;i<data.length;i++){
@@ -68,7 +68,7 @@ $.ajax({
        
     dataType: 'json',
     type: 'POST',
-    url: "/classChart",
+    url: "/records/classChart",
     success: function(data) {
 console.log(data,'data')
 let labels1 =[]
@@ -137,7 +137,7 @@ $.ajax({
        
     dataType: 'json',
     type: 'POST',
-    url: "/classGenderChartX",
+    url: "/records/classGenderChartX",
     success: function(data) {
 console.log(data,'nafukwa')
 let labels1 =[]
@@ -287,7 +287,7 @@ $.ajax({
    
     dataType: 'json',
     type: 'POST',
-    url: "/statChart",
+    url: "/records/statChart",
     success: function(data) {
     console.log(data)
      for (var i = 0;i<data.length;i++){
@@ -454,7 +454,7 @@ $.ajax({
    
     dataType: 'json',
     type: 'POST',
-    url: "/stdStatsChart99",
+    url: "/records/stdStatsChart99",
     success: function(data) {
     console.log(data.length)
     console.log('count',data[0].count)
