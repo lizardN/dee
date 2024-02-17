@@ -5264,13 +5264,24 @@ user.save()
 
 
 
+//ccs
+router.get('/homepage',function(req,res){
+  res.render('ccs/index')
+})
 
 
+router.get('/about',function(req,res){
+  res.render('ccs/abt')
+})
  
 
+router.get('/igcse',function(req,res){
+  res.render('ccs/igcse')
+})
 
-
-
+router.get('/alevel',function(req,res){
+  res.render('ccs/product')
+})
 
 
   
